@@ -48,7 +48,7 @@ def main():
     logging.getLogger("autotvm").addHandler(logging.StreamHandler(sys.stdout))
 
  
-        # Create a measurement callback with the custom function
+    # Create a measurement callback with the custom function
     
     # measure_callbacks = [record_execution_time]
 
