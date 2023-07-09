@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --nodes=2
-#SBATCH --time=00:30:00
+#SBATCH --nodes=1
+#SBATCH --time=05:00:00
 #SBATCH --job-name=ytopt
 #SBATCH --output=slurmLog/out/gpu-matmul-ytopt.%j.out
 #SBATCH --error=slurmLog/err/gpu-matmul-ytopt.%j.err
