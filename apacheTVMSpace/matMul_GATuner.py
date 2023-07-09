@@ -61,7 +61,7 @@ def main():
     tuner = autotvm.tuner.GATuner(task)
     start = time.time()
     tuner.tune(
-    n_trial=2,
+    n_trial=100,
     measure_option=measure_option,
     callbacks=[autotvm.callback.log_to_file("results/tvm_GATuner.json")]
     )
