@@ -1,0 +1,4 @@
+root - INFO - Grid Search Tuner Matrix Multiplication - 2023-07-09 17:06:09.331305
+autotvm - DEBUG - waiting for device...
+autotvm - DEBUG - device available
+autotvm - INFO - Get devices for measurement successfully!

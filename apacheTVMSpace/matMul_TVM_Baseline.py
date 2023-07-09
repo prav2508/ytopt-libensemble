@@ -40,7 +40,7 @@ def main():
     c_tvm = tvm.nd.empty(c_np.shape)
   
     func(tvm.nd.array(a_np), tvm.nd.array(b_np), c_tvm)
-    # print(c_tvm)
+
 
 
 if __name__ == '__main__':

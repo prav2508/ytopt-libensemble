@@ -1,0 +1,8 @@
+root - INFO - GA Tuner Matrix Multiplication - 2023-07-09 17:07:43.286873
+autotvm - DEBUG - waiting for device...
+autotvm - DEBUG - device available
+autotvm - INFO - Get devices for measurement successfully!
+autotvm - DEBUG - No: 1	GFLOPS: 6.80/6.80	result: MeasureResult(costs=(2.5030697500000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=6.334830284118652, timestamp=1688940473.471961)	[('tile_y', 8), ('tile_x', 128)],None,62
+autotvm - DEBUG - No: 2	GFLOPS: 0.31/6.80	result: MeasureResult(costs=(55.264292125,), error_no=MeasureErrorNo.NO_ERROR, all_cost=110.82187414169312, timestamp=1688940584.357769)	[('tile_y', 256), ('tile_x', 2)],None,7
+root - INFO - Elpased time = 121.34979581832886
+autotvm - DEBUG - Finish loading 4 records

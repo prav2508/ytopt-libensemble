@@ -5,10 +5,15 @@ import logging
 import sys
 import time
 from tvm import te
+import logging
+from datetime import datetime
+
+logging.basicConfig(filename='logs/randomTuner.log', level=logging.DEBUG,filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logging.info('Random Tuner Matrix Multiplication - {}'.format(datetime.now()))
 
 def record_execution_time(task, config, duration):
     execution_time = duration
-    print(f"Execution time: {execution_time} seconds")
+    logging.info(f"Execution time: {execution_time} seconds")
 
 
 @autotvm.template("test/tvmmatmul_v1") 
@@ -28,8 +33,9 @@ def matmul_v1(N, L, M, dtype):
     cfg = autotvm.get_config()
 
     # 3. define search space
-    cfg.define_knob("tile_y", [2,4,8,16,32,64,128,256,512])
-    cfg.define_knob("tile_x", [2,4,8,16,32,64,128,256,512])
+    cfg.define_knob("tile_y", [2,4,8,16,32,64,128,256,512,1024])
+    cfg.define_knob("tile_x", [2,4,8,16,32,64,128,256,512,1024])
+
 
     # 4. schedule according to config
     yo, yi = s[C].split(y, cfg["tile_y"].val)
@@ -41,36 +47,36 @@ def matmul_v1(N, L, M, dtype):
 
 
 def main():
+
     N, L, M = 2028 , 2048 , 2048
     task = autotvm.task.create("test/tvmmatmul_v1", args=(N, L, M,"float64"), target="llvm")
-    print(task.config_space)
-    logging.getLogger("autotvm").setLevel(logging.DEBUG)
-    logging.getLogger("autotvm").addHandler(logging.StreamHandler(sys.stdout))
 
- 
-        # Create a measurement callback with the custom function
-    
-    # measure_callbacks = [record_execution_time]
+
+    # Create a measurement callback with the custom function
 
     measure_option = autotvm.measure_option(builder="local", 
                                             runner=autotvm.LocalRunner(number=1, repeat=1, timeout=200), # timeout=20
                                             )
 
     tuner = autotvm.tuner.RandomTuner(task)
+    start = time.time()
     tuner.tune(
-    n_trial=10,
+    n_trial=100,
     measure_option=measure_option,
-    callbacks=[autotvm.callback.log_to_file("tvm_RandomTuner.log"),record_execution_time]
+    callbacks=[autotvm.callback.log_to_file("results/tvm_RandomTuner.json")]
     )
+    end = time.time()
 
-    with autotvm.apply_history_best("tvm_RandomTuner.log"):
+    logging.info("Elpased time = {}".format(end-start))
+
+    with autotvm.apply_history_best("results/tvm_RandomTuner.json"):
         with tvm.target.Target("llvm"):
             s, arg_bufs = matmul_v1(N, L, M,"float64") #float64 
             func = tvm.build(s, arg_bufs)
 
 if __name__ == '__main__':
-    start = time.time()
-    main()
-    end = time.time()
+    try:
+        main()
+    except Exception as e:
+        logging.error("Exception occured = ",e)
 
-    print("Elpased time = {}".format(end-start))
