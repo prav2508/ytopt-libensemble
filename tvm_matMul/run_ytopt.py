@@ -30,7 +30,9 @@ import ConfigSpace as CS
 import ConfigSpace.hyperparameters as CSH
 from ConfigSpace import ConfigurationSpace, EqualsCondition
 from ytopt.search.optimizer import Optimizer
+import time
 
+start = time.time()
 # Parse comms, default options from commandline
 nworkers, is_manager, libE_specs, user_args_in = parse_args()
 num_sim_workers = nworkers - 1  # Subtracting one because one worker will be the generator
@@ -71,8 +73,8 @@ sim_specs = {
 
 cs = CS.ConfigurationSpace(seed=1234)
 #batch_size
-p0= CSH.OrdinalHyperparameter(name='p0', sequence=[2,4,8,16,32,64,128,256,512])
-p1= CSH.OrdinalHyperparameter(name='p1', sequence=[2,4,8,16,32,64,128,256,512])
+p0= CSH.OrdinalHyperparameter(name='p0', sequence=[1,2,4,8,16,32,64,128,256,512,1024,2048])
+p1= CSH.OrdinalHyperparameter(name='p1', sequence=[1,2,4,8,16,32,64,128,256,512,1024,2048])
 
 cs.add_hyperparameters([p0, p1])
 
@@ -104,7 +106,7 @@ alloc_specs = {
 }
 
 # Specify when to exit. More options: https://libensemble.readthedocs.io/en/main/data_structures/exit_criteria.html
-exit_criteria = {'gen_max': int(user_args['max-evals'])}
+exit_criteria = {'sim_max': int(user_args['max-evals'])}
 
 # Added as a workaround to issue that's been resolved on develop
 persis_info = add_unique_random_streams({}, nworkers + 1)
@@ -113,16 +115,19 @@ persis_info = add_unique_random_streams({}, nworkers + 1)
 H, persis_info, flag = libE(sim_specs, gen_specs, exit_criteria, persis_info,
                             alloc_specs=alloc_specs, libE_specs=libE_specs)
 
+end = time.time()
+
 # Save History array to file
 if is_manager:
     print("\nlibEnsemble has completed evaluations.")
-    #save_libE_output(H, persis_info, __file__, nworkers)
+    print("Elapsed time = {}".format(end-start))
+    save_libE_output(H, persis_info, __file__, nworkers)
 
-    #print("\nSaving just sim_specs[['in','out']] to a CSV")
-    #H = np.load(glob.glob('*.npy')[0])
-    #H = H[H["sim_ended"]]
-    #H = H[H["returned"]]
-    #dtypes = H[gen_specs['persis_in']].dtype
-    #b = np.vstack(map(list, H[gen_specs['persis_in']]))
-    #print(b)
-    #np.savetxt('results.csv',b, header=','.join(dtypes.names), delimiter=',',fmt=','.join(['%s']*b.shape[1]))
+    print("\nSaving just sim_specs[['in','out']] to a CSV")
+    H = np.load(glob.glob('*.npy')[0])
+    H = H[H["sim_ended"]]
+    H = H[H["returned"]]
+    dtypes = H[gen_specs['persis_in']].dtype
+    b = np.vstack(map(list, H[gen_specs['persis_in']]))
+    print(b)
+    np.savetxt('results.csv',b, header=','.join(dtypes.names), delimiter=',',fmt=','.join(['%s']*b.shape[1]))

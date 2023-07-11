@@ -33,8 +33,8 @@ def matmul_v1(N, L, M, dtype):
     cfg = autotvm.get_config()
 
     # 3. define search space
-    cfg.define_knob("tile_y", [2,4,8,16,32,64,128,256,512,1024])
-    cfg.define_knob("tile_x", [2,4,8,16,32,64,128,256,512,1024])
+    cfg.define_knob("tile_y", [1,2,4,8,16,32,64,128,256,512,1024,2048])
+    cfg.define_knob("tile_x", [1,2,4,8,16,32,64,128,256,512,1024,2048])
 
 
     # 4. schedule according to config
