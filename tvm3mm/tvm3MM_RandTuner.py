@@ -4,61 +4,99 @@ from tvm import autotvm
 
 import time
 from tvm import te
+import logging
+from datetime import datetime
 
+logging.basicConfig(filename='logs/randomTuner.log', level=logging.DEBUG,filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logging.info('Random Tuner 3 Matrix Multiplication - {}'.format(datetime.now()))
 
-
-def matmul_basic(N, L, M, dtype):
+@autotvm.template("trial/tvm3matmul_v1") 
+def matmul_3mm(N, L, M, dtype):
 
     A = te.placeholder((N, L), name="A", dtype=dtype)
     B = te.placeholder((L, M), name="B", dtype=dtype)
-    k = te.reduce_axis((0, L), name="k")
-    E = te.compute((N, M), lambda i, j: te.sum(A[i, k] * B[k, j], axis=k), name="E")
-    s = te.create_schedule(E.op)
-    # schedule
-    y, x = s[E].op.axis
-    k = s[E].op.reduce_axis[0]
-    # using 8 as the tiling factor
-    yo, yi = s[E].split(y, 8) 
-    xo, xi = s[E].split(x, 8)
-    s[E].reorder(yo, xo, k, yi, xi)
-    return s, [A, B, E]
+    
+    C = te.placeholder((N, L), name="C", dtype=dtype)
+    D = te.placeholder((L, M), name="D", dtype=dtype)
 
-@autotvm.template("trial/tvm3mm_v1") 
-def runner(a,b,c,d,e,f,g):
-    pass
+    k = te.reduce_axis((0, L), name="k")
+    l = te.reduce_axis((0, L), name="l")
+    m = te.reduce_axis((0, L), name="m")
+
+    E = te.compute((N, M), lambda i, j: te.sum(A[i, k] * B[k, j], axis=k), name="E")
+    F = te.compute((N, M), lambda i, j: te.sum(C[i, l] * D[l, j], axis=l), name="F")
+    G = te.compute((N, M), lambda i, j: te.sum(E[i, m] * F[m, j], axis=m), name="G")
+    
+    s1 = te.create_schedule(E.op)
+    s2 = te.create_schedule(F.op)
+    s3 = te.create_schedule(G.op)
+
+        # 2. get the config object
+    cfg = autotvm.get_config()
+
+    # 3. define search space
+    cfg.define_knob("tile_y", [2,4,8,16,32,64,128,256,512,1024])
+    cfg.define_knob("tile_x", [2,4,8,16,32,64,128,256,512,1024])
+    cfg.define_knob("tile_y1", [2,4,8,16,32,64,128,256,512,1024])
+    cfg.define_knob("tile_x1", [2,4,8,16,32,64,128,256,512,1024])
+    cfg.define_knob("tile_y2", [2,4,8,16,32,64,128,256,512,1024])
+    cfg.define_knob("tile_x2", [2,4,8,16,32,64,128,256,512,1024])
+
+    # schedule
+    y, x = s1[E].op.axis
+    k = s1[E].op.reduce_axis[0]
+    y1, x1 = s2[F].op.axis
+    l = s2[F].op.reduce_axis[0]
+    y2, x2 = s3[G].op.axis
+    m = s3[G].op.reduce_axis[0]
+    
+    #using 8 as the tiling factor
+    yo, yi = s1[E].split(y, cfg["tile_y"].val) 
+    xo, xi = s1[E].split(x, cfg["tile_x"].val)
+    yo1, yi1 = s2[F].split(y1, cfg["tile_y1"].val) 
+    xo1, xi1 = s2[F].split(x1, cfg["tile_x1"].val)
+    yo2, yi2 = s3[G].split(y2, cfg["tile_y2"].val) 
+    xo2, xi2 = s3[G].split(x2, cfg["tile_x2"].val)
+
+    s1[E].reorder(yo, xo, k, yi, xi)
+    s2[F].reorder(yo1, xo1, l, yi1, xi1)
+    s3[G].reorder(yo2, xo2, m, yi2, xi2)
+
+    return s3, [A, B, C, D, G]
+
 
 
 def main():
-    N,L,M = 2048, 2048, 2048
-    a_np = np.random.uniform(size=(N, L)).astype(np.float32)
-    b_np = np.random.uniform(size=(L, M)).astype(np.float32)
-    c_np = np.random.uniform(size=(N, L)).astype(np.float32)
-    d_np = np.random.uniform(size=(L, M)).astype(np.float32)
+    N,L,M = 8, 8, 8
+    
+    task = autotvm.task.create("trial/tvm3matmul_v1", args=(N, L, M,"float64"), target="llvm")
 
-    e_np = a_np.dot(b_np)
-    f_np = c_np.dot(d_np)
+    measure_option = autotvm.measure_option(builder="local", 
+                                        runner=autotvm.LocalRunner(number=1, repeat=1, timeout=200), # timeout=20
+                                        )
+    
 
-    e_tvm = tvm.nd.empty(e_np.shape)
-    f_tvm = tvm.nd.empty(f_np.shape)
-
-    g_np = e_np.dot(f_np)
-    g_tvm = tvm.nd.empty(g_np.shape)
-
-    s, arg_bufs = matmul_basic(N, L, M, "float32")
-
-    func = tvm.build(s,arg_bufs)
-
+    tuner = autotvm.tuner.RandomTuner(task)
     start = time.time()
-    func(tvm.nd.array(a_np), tvm.nd.array(b_np), e_tvm)
-    func(tvm.nd.array(c_np), tvm.nd.array(d_np), f_tvm)
-    func(e_tvm, f_tvm, g_tvm)
+    tuner.tune(
+    n_trial=5,
+    measure_option=measure_option,
+    callbacks=[autotvm.callback.log_to_file("results/tvm_RandomTuner.json")]
+    )
     end = time.time()
-    print(g_tvm)
-    print("Elpased time = {} secs".format(round(end-start,2)))
 
+    logging.info("Elpased time = {}".format(end-start))
+
+    with autotvm.apply_history_best("results/tvm_RandomTuner.json"):
+        with tvm.target.Target("llvm"):
+            s, arg_bufs = matmul_3mm(N, L, M,"float64") 
+            func = tvm.build(s, arg_bufs)
 
 
 if __name__ == '__main__':
     
-    main()
+    try:
+        main()
+    except Exception as e:
+        logging.error("Exception occured = ",e)
     
