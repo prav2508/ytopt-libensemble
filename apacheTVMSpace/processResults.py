@@ -1,10 +1,12 @@
 import json
 import csv
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 RandomData = {}
 GAData = {}
+XGBData = {}
+GridSearchData = {}
 YTOPTData = {}
 
 
@@ -36,7 +38,7 @@ def processYtoptResults(filename):
     with open(filename, 'r') as file:
         reader = csv.reader(file)
         header = next(reader) 
-        i=0
+        i=1
         for row in reader:
             object = {}
             runtime = round(float(row[2]),2) 
@@ -54,6 +56,8 @@ def processYtoptResults(filename):
 
 RandomData = processTVMResults('results/tvm_RandomTuner.json')
 GAData = processTVMResults('results/tvm_GATuner.json')
+XGBData = processTVMResults('results/tvm_XGBTuner.json')
+GridSearchData = processTVMResults('results/tvm_GridSearchTuner.json')
 
 YTOPTData = processYtoptResults('../tvm_matMul/results.csv')
 
@@ -61,9 +65,21 @@ YTOPTData = processYtoptResults('../tvm_matMul/results.csv')
 
 plt.plot([d['elapsed'] for d in GAData.values()], [d['runtime'] for d in GAData.values()],marker='o',alpha=0.7)
 plt.plot([d['elapsed'] for d in RandomData.values()], [d['runtime'] for d in RandomData.values()],marker='o',alpha=0.7)
+plt.plot([d['elapsed'] for d in GridSearchData.values()], [d['runtime'] for d in GridSearchData.values()],marker='o',alpha=0.7)
+plt.plot([d['elapsed'] for d in XGBData.values()], [d['runtime'] for d in XGBData.values()],marker='o',alpha=0.7)
+
 plt.plot([d['elapsed'] for d in YTOPTData.values()], [d['runtime'] for d in YTOPTData.values()],marker='o',alpha=0.7)
-plt.legend(['GA Tuner','Random Tuner','YTOPT Tuner'], loc='upper right')
+
+# plt.axhline(min([d['runtime'] for d in GAData.values()]), color='blue',alpha=0.7)
+# plt.axhline(min([np.log2(d['runtime']) for d in RandomData.values()]), color='orange',alpha=0.7)
+# plt.axhline(min([np.log2(d['runtime']) for d in YTOPTData.values()]), color='green',alpha=0.7)
+# print(min([np.log2(d['runtime']) for d in GAData.values()]))
+# print(min([d['runtime'] for d in RandomData.values()]))
+# print(min([d['runtime'] for d in YTOPTData.values()]))
+
+
+plt.legend(['AutoTVM - GA','AutoTVM - Random','AutoTVM - GridSearch','AutoTVM - XGB','YTOPT Tuner'], loc='upper right')
 plt.xlabel("Cummulative time(secs)")
 plt.ylabel("Runtime(secs)")
-plt.title("Autotuning Performance (Apache TVM vs YTOPT)")
+plt.title("Performance of Matrix Multiplication (AutoTVM vs YTOPT)")
 plt.savefig('Eval_performance.png')
