@@ -16,7 +16,7 @@ def record_execution_time(task, config, duration):
     logging.info(f"Execution time: {execution_time} seconds")
 
 
-@autotvm.template("test/tvmmatmul_v1") 
+
 def matmul_v1(N, L, M, dtype):
     A = te.placeholder((N, L), name="A", dtype=dtype)
     B = te.placeholder((L, M), name="B", dtype=dtype)
