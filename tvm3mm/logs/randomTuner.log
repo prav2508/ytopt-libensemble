@@ -1,0 +1,11 @@
+root - INFO - Random Tuner 3 Matrix Multiplication - 2023-07-13 11:45:12.985350
+autotvm - DEBUG - waiting for device...
+autotvm - DEBUG - device available
+autotvm - INFO - Get devices for measurement successfully!
+autotvm - DEBUG - No: 1	GFLOPS: 3.51/3.51	result: MeasureResult(costs=(8.75e-07,), error_no=MeasureErrorNo.NO_ERROR, all_cost=1.5770070552825928, timestamp=1689266718.498761)	[('tile_y', 2), ('tile_x', 256), ('tile_y1', 128), ('tile_x1', 256), ('tile_y2', 256), ('tile_x2', 4)],None,177670
+autotvm - DEBUG - No: 2	GFLOPS: 2.73/3.51	result: MeasureResult(costs=(1.1249999999999998e-06,), error_no=MeasureErrorNo.NO_ERROR, all_cost=1.4566588401794434, timestamp=1689266719.7660108)	[('tile_y', 1024), ('tile_x', 512), ('tile_y1', 32), ('tile_x1', 1024), ('tile_y2', 1024), ('tile_x2', 64)],None,599489
+autotvm - DEBUG - No: 3	GFLOPS: 2.95/3.51	result: MeasureResult(costs=(1.042e-06,), error_no=MeasureErrorNo.NO_ERROR, all_cost=1.5122039318084717, timestamp=1689266721.069463)	[('tile_y', 512), ('tile_x', 4), ('tile_y1', 256), ('tile_x1', 4), ('tile_y2', 8), ('tile_x2', 2)],None,21718
+autotvm - DEBUG - No: 4	GFLOPS: 2.63/3.51	result: MeasureResult(costs=(1.167e-06,), error_no=MeasureErrorNo.NO_ERROR, all_cost=1.258415937423706, timestamp=1689266722.118858)	[('tile_y', 16), ('tile_x', 128), ('tile_y1', 1024), ('tile_x1', 16), ('tile_y2', 32), ('tile_x2', 32)],None,443963
+autotvm - DEBUG - No: 5	GFLOPS: 2.95/3.51	result: MeasureResult(costs=(1.042e-06,), error_no=MeasureErrorNo.NO_ERROR, all_cost=1.2300403118133545, timestamp=1689266723.141688)	[('tile_y', 4), ('tile_x', 128), ('tile_y1', 512), ('tile_x1', 64), ('tile_y2', 1024), ('tile_x2', 128)],None,695861
+root - INFO - Elpased time = 10.393420934677124
+autotvm - DEBUG - Finish loading 10 records

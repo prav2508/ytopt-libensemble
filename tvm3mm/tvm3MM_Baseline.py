@@ -52,7 +52,7 @@ def matmul_basic(N, L, M, dtype):
 
 
 def main():
-    N,L,M = 2048, 2048, 2048
+    N,L,M = 8, 8, 8
     s, arg_bufs = matmul_basic(N, L, M, "float64")
     func = tvm.build(s,arg_bufs)
     a_np = np.random.uniform(size=(N, L)).astype(np.float64)
@@ -66,9 +66,9 @@ def main():
     start = time.time()
     func(tvm.nd.array(a_np), tvm.nd.array(b_np),tvm.nd.array(c_np),tvm.nd.array(d_np), mm_tvm)
     end = time.time()
-    print(mm_tvm)
 
-    print("Elpased time = {} secs".format(round(end-start,2)))
+
+    print("Elpased time (secs) = {}".format(round(end-start,2)))
 
 
 if __name__ == '__main__':
