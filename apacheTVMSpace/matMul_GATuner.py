@@ -51,6 +51,7 @@ def matmul_v1(N, L, M, dtype):
 def main():
 
     N, L, M = 1000 , 1100 , 1200
+    #N, L, M = 2000 , 2300 , 2600
     task = autotvm.task.create("test/tvmmatmul_v1", args=(N, L, M,"float64"), target="llvm")
 
 

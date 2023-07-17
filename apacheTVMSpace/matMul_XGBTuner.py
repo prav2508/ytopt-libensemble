@@ -33,8 +33,11 @@ def matmul_v1(N, L, M, dtype):
     cfg = autotvm.get_config()
 
     # 3. define search space
-    cfg.define_knob("tile_y", [2,4,8,16,32,64,128,256,512,1024])
-    cfg.define_knob("tile_x", [2,4,8,16,32,64,128,256,512,1024])
+    # cfg.define_knob("tile_y", [1,2,4,8,16,32,64,128,256,512,1024,2048])
+    # cfg.define_knob("tile_x", [1,2,4,8,16,32,64,128,256,512,1024,2048])
+
+    cfg.define_knob("tile_y", [1,2,4,8,16,32,64,128,256,512,1024])
+    cfg.define_knob("tile_x", [1,2,4,8,16,32,64,128,256,512,1024])
 
     # 4. schedule according to config
     yo, yi = s[C].split(y, cfg["tile_y"].val)
@@ -47,7 +50,8 @@ def matmul_v1(N, L, M, dtype):
 
 def main():
 
-    N, L, M = 2048 , 2048 , 2048
+    N, L, M = 1000 , 1100 , 1200
+    #N, L, M = 2000 , 2300 , 2600
     task = autotvm.task.create("test/tvmmatmul_v1", args=(N, L, M,"float64"), target="llvm")
 
 
@@ -70,7 +74,7 @@ def main():
 
     with autotvm.apply_history_best("results/tvm_XGBTuner.json"):
         with tvm.target.Target("llvm"):
-            s, arg_bufs = matmul_v1(N, L, M,"float32") #float64 
+            s, arg_bufs = matmul_v1(N, L, M,"float64") #float64 
             func = tvm.build(s, arg_bufs)
 
 if __name__ == '__main__':
