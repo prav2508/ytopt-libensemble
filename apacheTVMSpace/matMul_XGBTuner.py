@@ -61,7 +61,7 @@ def main():
                                             runner=autotvm.LocalRunner(number=1, repeat=1, timeout=200), # timeout=20
                                             )
 
-    tuner = autotvm.tuner.XGBTuner(task)
+    tuner = autotvm.tuner.XGBTuner(task,plan_size=64, feature_type='itervar', loss_type='reg', num_threads=None, optimizer='sa')
     start = time.time()
     tuner.tune(
     n_trial=100,
