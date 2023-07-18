@@ -15,3 +15,23 @@ conda activate tvm
 python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_GATuner.py
 python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_GridSearch.py
 python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_RandTuner.py
+
+
+input="$1"
+
+
+# Check if the variable is empty
+if [ "$input" == "L" ]; then
+    python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_Baseline.py --size=L
+    python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_GATuner.py --size=L
+    python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_GridSearch.py --size=L
+    python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_RandTuner.py --size=L
+
+else
+    python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_Baseline.py --size=XL
+    python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_GATuner.py --size=XL
+    python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_GridSearch.py --size=XL
+    python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_RandTuner.py --size=XL
+
+fi
+
