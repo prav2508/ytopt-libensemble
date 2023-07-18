@@ -75,7 +75,7 @@ def main(datasize):
     path = resultsPath + "tvmRandomTuner.json"
     start = time.time()
     tuner.tune(
-    n_trial=5,
+    n_trial=100,
     measure_option=measure_option,
     callbacks=[autotvm.callback.log_to_file(path)]
     )
