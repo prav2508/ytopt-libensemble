@@ -17,3 +17,4 @@ python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_Baseline
 python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_GATuner.py --size=XL
 python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_GridSearch.py --size=XL
 python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_RandTuner.py --size=XL
+python /home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_XGBTuner.py --size=L
