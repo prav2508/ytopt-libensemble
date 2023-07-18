@@ -6,7 +6,7 @@ from tvm import te
 import logging
 from datetime import datetime
 
-logging.basicConfig(filename='logs/randomTuner.log', level=logging.DEBUG,filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='logs/XL_randomTuner.log', level=logging.DEBUG,filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 logging.info('Random Tuner Matrix Multiplication - {}'.format(datetime.now()))
 
 def record_execution_time(task, config, duration):
@@ -49,8 +49,8 @@ def matmul_v1(N, L, M, dtype):
 
 def main():
 
-    N, L, M = 1000 , 1100 , 1200
-    #N, L, M = 2000 , 2300 , 2600
+    # N, L, M = 1000 , 1100 , 1200
+    N, L, M = 2000 , 2300 , 2600
     task = autotvm.task.create("test/tvmmatmul_v1", args=(N, L, M,"float64"), target="llvm")
 
 
@@ -65,13 +65,13 @@ def main():
     tuner.tune(
     n_trial=100,
     measure_option=measure_option,
-    callbacks=[autotvm.callback.log_to_file("results/tvm_RandomTuner.json")]
+    callbacks=[autotvm.callback.log_to_file("results/XL_tvm_RandomTuner.json")]
     )
     end = time.time()
 
     logging.info("Elpased time = {}".format(end-start))
 
-    with autotvm.apply_history_best("results/tvm_RandomTuner.json"):
+    with autotvm.apply_history_best("results/XL_tvm_RandomTuner.json"):
         with tvm.target.Target("llvm"):
             s, arg_bufs = matmul_v1(N, L, M,"float64") #float64 
             func = tvm.build(s, arg_bufs)
