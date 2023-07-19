@@ -1,0 +1,70 @@
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_XGBTuner.py", line 107, in <module>
+    main(size)
+  File "/home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_XGBTuner.py", line 77, in main
+    tuner.tune(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/xgboost_tuner.py", line 105, in tune
+    super(XGBTuner, self).tune(*args, **kwargs)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/tuner.py", line 173, in tune
+    self.update(inputs, results)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/model_based_tuner.py", line 268, in update
+    self.cost_model.fit(self.xs, self.ys, self.plan_size)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/xgboost_cost_model.py", line 201, in fit
+    custom_callback(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/xgboost_cost_model.py", line 451, in custom_callback
+    from xgboost.callback import _fmt_metric
+ImportError: cannot import name '_fmt_metric' from 'xgboost.callback' (/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/xgboost/callback.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_XGBTuner.py", line 110, in <module>
+    logging.error("Exception occured = ",e)
+Message: 'Exception occured = '
+Arguments: (ImportError("cannot import name '_fmt_metric' from 'xgboost.callback' (/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/xgboost/callback.py)"),)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_XGBTuner.py", line 107, in <module>
+    main(size)
+  File "/home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_XGBTuner.py", line 77, in main
+    tuner.tune(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/xgboost_tuner.py", line 105, in tune
+    super(XGBTuner, self).tune(*args, **kwargs)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/tuner.py", line 173, in tune
+    self.update(inputs, results)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/model_based_tuner.py", line 268, in update
+    self.cost_model.fit(self.xs, self.ys, self.plan_size)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/xgboost_cost_model.py", line 201, in fit
+    custom_callback(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/tuner/xgboost_cost_model.py", line 451, in custom_callback
+    from xgboost.callback import _fmt_metric
+ImportError: cannot import name '_fmt_metric' from 'xgboost.callback' (/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/xgboost/callback.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/home/pparamasivam/ytune/ytopt-libensemble/apacheTVMSpace/matMul_XGBTuner.py", line 110, in <module>
+    logging.error("Exception occured = ",e)
+Message: 'Exception occured = '
+Arguments: (ImportError("cannot import name '_fmt_metric' from 'xgboost.callback' (/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/xgboost/callback.py)"),)
