@@ -39,12 +39,12 @@ def matmul_v1(N, L, M, size, dtype):
 
     if size != 'L':
 
-        cfg.define_knob("tile_y", [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
-        cfg.define_knob("tile_x", [1, 2, 4, 5, 10, 13, 20, 25, 40, 50, 52, 100, 104, 200, 260, 325, 520, 650, 1300, 2600])
+        cfg.define_knob("tile_x", [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
+        cfg.define_knob("tile_y", [1, 2, 4, 5, 10, 13, 20, 25, 40, 50, 52, 100, 104, 200, 260, 325, 520, 650, 1300, 2600])
     else:    
 
-        cfg.define_knob("tile_y", [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000])
-        cfg.define_knob("tile_x", [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 40, 48, 50, 60, 75, 80, 100, 120, 150, 200, 240, 300, 400, 600, 1200]) 
+        cfg.define_knob("tile_x", [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000])
+        cfg.define_knob("tile_y", [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 40, 48, 50, 60, 75, 80, 100, 120, 150, 200, 240, 300, 400, 600, 1200]) 
 
     # 4. schedule according to config
     yo, yi = s[C].split(y, cfg["tile_y"].val)
@@ -103,6 +103,7 @@ if __name__ == '__main__':
 
         logging.basicConfig(filename=logPath+'XGBTuner.log', level=logging.DEBUG,filemode='w', format='%(name)s - %(levelname)s - %(message)s')
         logging.info('XGB Tuner Matrix Multiplication - {}'.format(datetime.now()))
+
 
         main(size)
 

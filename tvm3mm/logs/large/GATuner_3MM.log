@@ -1,0 +1,8 @@
+root - INFO - GA Tuner 3MM - 2023-07-20 01:54:52.216175
+autotvm - DEBUG - waiting for device...
+autotvm - DEBUG - device available
+autotvm - INFO - Get devices for measurement successfully!
+autotvm - DEBUG - No: 1	GFLOPS: 3.17/3.17	result: MeasureResult(costs=(1.891828208,), error_no=MeasureErrorNo.NO_ERROR, all_cost=13.279299259185791, timestamp=1689836109.7428212)	[('tile_y', 100), ('tile_x', 50), ('tile_y1', 5), ('tile_x1', 400), ('tile_y2', 32), ('tile_x2', 50)],None,124530232
+autotvm - DEBUG - No: 2	GFLOPS: 2.96/3.17	result: MeasureResult(costs=(2.027889083,), error_no=MeasureErrorNo.NO_ERROR, all_cost=5.6438634395599365, timestamp=1689836115.3855731)	[('tile_y', 250), ('tile_x', 25), ('tile_y1', 15), ('tile_x1', 80), ('tile_y2', 4), ('tile_x2', 10)],None,55509475
+root - INFO - Elpased time = 23.40503716468811
+autotvm - DEBUG - Finish loading 2 records

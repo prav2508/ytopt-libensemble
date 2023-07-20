@@ -1,0 +1,9 @@
+root - INFO - XGB Tuner 3MM - 2023-07-20 02:02:31.584341
+numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+autotvm - DEBUG - waiting for device...
+autotvm - DEBUG - device available
+autotvm - INFO - Get devices for measurement successfully!
+autotvm - DEBUG - No: 1	GFLOPS: 2.78/2.78	result: MeasureResult(costs=(2.1619183750000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=13.69760537147522, timestamp=1689836578.7847471)	[('tile_y', 4), ('tile_x', 8), ('tile_y1', 120), ('tile_x1', 80), ('tile_y2', 12), ('tile_x2', 8)],None,46141282
+autotvm - DEBUG - No: 2	GFLOPS: 2.96/2.96	result: MeasureResult(costs=(2.030406708,), error_no=MeasureErrorNo.NO_ERROR, all_cost=5.579236745834351, timestamp=1689836584.1958048)	[('tile_y', 40), ('tile_x', 5), ('tile_y1', 25), ('tile_x1', 16), ('tile_y2', 300), ('tile_x2', 1600)],None,226593849
+root - INFO - Elpased time = 23.362531185150146
+autotvm - DEBUG - Finish loading 2 records

@@ -1,0 +1,8 @@
+root - INFO - GridSearch Tuner 3MM - 2023-07-20 01:59:31.270589
+autotvm - DEBUG - waiting for device...
+autotvm - DEBUG - device available
+autotvm - INFO - Get devices for measurement successfully!
+autotvm - DEBUG - No: 1	GFLOPS: 1.95/1.95	result: MeasureResult(costs=(24.580427542000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=50.71418595314026, timestamp=1689836425.865466)	[('tile_y', 1), ('tile_x', 1), ('tile_y1', 1), ('tile_x1', 1), ('tile_y2', 1), ('tile_x2', 1)],None,0
+autotvm - DEBUG - No: 2	GFLOPS: 1.97/1.97	result: MeasureResult(costs=(24.383229458000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=50.54624104499817, timestamp=1689836476.456202)	[('tile_y', 2), ('tile_x', 1), ('tile_y1', 1), ('tile_x1', 1), ('tile_y2', 1), ('tile_x2', 1)],None,1
+root - INFO - Elpased time = 105.42764115333557
+autotvm - DEBUG - Finish loading 2 records

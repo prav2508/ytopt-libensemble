@@ -93,11 +93,11 @@ def main(datasize):
                                         )
     
 
-    tuner = autotvm.tuner.RandomTuner(task)
-    path = resultsPath + "tvmRandomTuner.json"
+    tuner = autotvm.tuner.GATuner(task)
+    path = resultsPath + "tvmGATuner.json"
     start = time.time()
     tuner.tune(
-    n_trial=5,
+    n_trial=2,
     measure_option=measure_option,
     callbacks=[autotvm.callback.log_to_file(path)]
     )
@@ -125,8 +125,8 @@ if __name__ == '__main__':
             logPath = logPath + 'extraLarge/'
             resultsPath = resultsPath + 'extraLarge/'
 
-        logging.basicConfig(filename=logPath+'RandomTuner_3MM.log', level=logging.DEBUG,filemode='w', format='%(name)s - %(levelname)s - %(message)s')
-        logging.info('Random Tuner 3MM - {}'.format(datetime.now()))
+        logging.basicConfig(filename=logPath+'GATuner_3MM.log', level=logging.DEBUG,filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+        logging.info('GA Tuner 3MM - {}'.format(datetime.now()))
 
 
         main(size)
