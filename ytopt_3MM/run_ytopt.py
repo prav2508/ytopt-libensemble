@@ -75,20 +75,20 @@ cs = CS.ConfigurationSpace(seed=1234)
 #batch_size
 
 #Large Parameter Space
-p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000])
-p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 160, 200, 400, 800])
-p2= CSH.OrdinalHyperparameter(name='p2', sequence= [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 40, 48, 50, 60, 75, 80, 100, 120, 150, 200, 240, 300, 400, 600, 1200])
-p3= CSH.OrdinalHyperparameter(name='p3', sequence= [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000])
-p4= CSH.OrdinalHyperparameter(name='p4', sequence= [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 40, 48, 50, 60, 75, 80, 100, 120, 150, 200, 240, 300, 400, 600, 1200])
-p5= CSH.OrdinalHyperparameter(name='p5', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 160, 200, 400, 800])
+# p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000])
+# p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 160, 200, 400, 800])
+# p2= CSH.OrdinalHyperparameter(name='p2', sequence= [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 40, 48, 50, 60, 75, 80, 100, 120, 150, 200, 240, 300, 400, 600, 1200])
+# p3= CSH.OrdinalHyperparameter(name='p3', sequence= [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000])
+# p4= CSH.OrdinalHyperparameter(name='p4', sequence= [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 40, 48, 50, 60, 75, 80, 100, 120, 150, 200, 240, 300, 400, 600, 1200])
+# p5= CSH.OrdinalHyperparameter(name='p5', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 160, 200, 400, 800])
     
 #ExtraLarge Parameter Space
-# p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
-# p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 64, 80, 100, 160, 200, 320, 400, 800, 1600])
-# p2= CSH.OrdinalHyperparameter(name='p2', sequence= [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 32, 40, 48, 50, 60, 75, 80, 96, 100, 120, 150, 160, 200, 240, 300, 400, 480, 600, 800, 1200, 2400])
-# p3= CSH.OrdinalHyperparameter(name='p3', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
-# p4= CSH.OrdinalHyperparameter(name='p4', sequence= [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 32, 40, 48, 50, 60, 75, 80, 96, 100, 120, 150, 160, 200, 240, 300, 400, 480, 600, 800, 1200, 2400])
-# p5= CSH.OrdinalHyperparameter(name='p5', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 64, 80, 100, 160, 200, 320, 400, 800, 1600])
+p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
+p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 64, 80, 100, 160, 200, 320, 400, 800, 1600])
+p2= CSH.OrdinalHyperparameter(name='p2', sequence= [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 32, 40, 48, 50, 60, 75, 80, 96, 100, 120, 150, 160, 200, 240, 300, 400, 480, 600, 800, 1200, 2400])
+p3= CSH.OrdinalHyperparameter(name='p3', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
+p4= CSH.OrdinalHyperparameter(name='p4', sequence= [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 32, 40, 48, 50, 60, 75, 80, 96, 100, 120, 150, 160, 200, 240, 300, 400, 480, 600, 800, 1200, 2400])
+p5= CSH.OrdinalHyperparameter(name='p5', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 64, 80, 100, 160, 200, 320, 400, 800, 1600])
 
 cs.add_hyperparameters([p0, p1, p2, p3, p4, p5])
 
