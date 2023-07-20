@@ -1,4 +1,4 @@
-root - INFO - XGB Tuner 3MM - 2023-07-20 09:13:35.660278
+root - INFO - XGB Tuner 3MM - 2023-07-20 09:51:06.019108
 autotvm - DEBUG - waiting for device...
 autotvm - DEBUG - device available
 autotvm - INFO - Get devices for measurement successfully!
