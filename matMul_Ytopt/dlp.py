@@ -31,7 +31,8 @@ def matmul_basic(N, L, M, dtype):
 
 
 def main():
-    N,L,M = 2048 , 2048 , 2048
+    # N, L, M = 1000 , 1100 , 1200
+    N, L, M = 2000 , 2300 , 2600
     s, arg_bufs = matmul_basic(N, L, M, "float64")
     func = tvm.build(s,arg_bufs)
     a_np = np.random.uniform(size=(N, L)).astype(np.float64)

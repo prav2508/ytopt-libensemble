@@ -73,8 +73,16 @@ sim_specs = {
 
 cs = CS.ConfigurationSpace(seed=1234)
 #batch_size
-p0= CSH.OrdinalHyperparameter(name='p0', sequence=[1,2,4,8,16,32,64,128,256,512,1024,2048])
-p1= CSH.OrdinalHyperparameter(name='p1', sequence=[1,2,4,8,16,32,64,128,256,512,1024,2048])
+p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
+p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 10, 13, 20, 25, 40, 50, 52, 100, 104, 200, 260, 325, 520, 650, 1300, 2600])
+
+    #Extra Large
+    # cfg.define_knob("tile_y", [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
+    # cfg.define_knob("tile_x", [1, 2, 4, 5, 10, 13, 20, 25, 40, 50, 52, 100, 104, 200, 260, 325, 520, 650, 1300, 2600])
+    
+    # Large
+    # cfg.define_knob("tile_y", [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000])
+    # cfg.define_knob("tile_x", [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 40, 48, 50, 60, 75, 80, 100, 120, 150, 200, 240, 300, 400, 600, 1200]) 
 
 cs.add_hyperparameters([p0, p1])
 
@@ -126,7 +134,7 @@ if is_manager:
     print("\nSaving just sim_specs[['in','out']] to a CSV")
     H = np.load(glob.glob('*.npy')[0])
     H = H[H["sim_ended"]]
-    H = H[H["returned"]]
+    # H = H[H["returned"]]
     dtypes = H[gen_specs['persis_in']].dtype
     b = np.vstack(map(list, H[gen_specs['persis_in']]))
     print(b)
