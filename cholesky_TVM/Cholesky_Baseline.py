@@ -14,12 +14,12 @@ logData = {}
 logPath = 'logs/'
 resultsPath = 'results/'
 
-def cholesky_basic(N, M, dtype):
+def cholesky_basic(N,dtype):
 
-    A = te.placeholder((N, M), name="A", dtype=dtype)
-    At = te.placeholder((M, N), name="At", dtype=dtype)
+    A = te.placeholder((N, N), name="A", dtype=dtype)
+    At = te.placeholder((N, N), name="At", dtype=dtype)
 
-    k = te.reduce_axis((0, M), name="k")
+    k = te.reduce_axis((0, N), name="k")
     C = te.compute((N, N), lambda i, j: te.sum(A[i, k] * At[k, j], axis=k), name="C")
 
     s = te.create_schedule(C.op)
@@ -36,27 +36,28 @@ def cholesky_basic(N, M, dtype):
 
     return s, [A, At, C]
 
-
+def getPositiveDefinite(N):
+    A = np.random.randn(N, N).astype(np.float64)
+    return A.dot(A.T)
 
 
 def main(datasize):
     if datasize == 'L':  
-        N, M = 1000 , 1200
+        N = 2000
     else:
-        N, M = 2000, 2600
-    s, arg_bufs = cholesky_basic(N, M, "float64")
+        N = 4000
+    s, arg_bufs = cholesky_basic(N, "float64")
     func = tvm.build(s,arg_bufs)
-    a_np = np.random.uniform(size=(N, M)).astype(np.float64)
+    a_np = np.linalg.cholesky(getPositiveDefinite(N))
     b_np = a_np.T
     c_np = a_np.dot(b_np)
-
     c_tvm = tvm.nd.empty(c_np.shape, dtype='float64')
-    
+    logging.info("Matrix shape{}".format(a_np.shape))
     start = time.time()
     func(tvm.nd.array(a_np), tvm.nd.array(b_np), c_tvm)
     end = time.time()
 
-    runTime = round(end-start,2)
+    runTime = round(end-start,3)
     logging.info("Elpased time = {} secs".format(runTime))
     logData['ElapsedTime'] = runTime
     with open(resultsPath+'Baseline.json', "w") as json_file:

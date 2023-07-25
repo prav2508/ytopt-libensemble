@@ -19,15 +19,16 @@ def record_execution_time(task, config, duration):
 
 
 @autotvm.template("test/tvmCholesky_v1") 
-def Cholesky_v1(N, M, size, dtype):
+def Cholesky_v1(N, size, dtype):
 
-    A = te.placeholder((N, M), name="A", dtype=dtype)
-    At = te.placeholder((M, N), name="At", dtype=dtype)
+    A = te.placeholder((N, N), name="A", dtype=dtype)
+    At = te.placeholder((N, N), name="At", dtype=dtype)
 
-    k = te.reduce_axis((0, M), name="k")
+    k = te.reduce_axis((0, N), name="k")
     C = te.compute((N, N), lambda i, j: te.sum(A[i, k] * At[k, j], axis=k), name="C")
 
     s = te.create_schedule(C.op)
+
 
     # schedule
     y, x = s[C].op.axis
@@ -55,15 +56,14 @@ def Cholesky_v1(N, M, size, dtype):
 
     return s, [A, At, C]
 
-
 def main(datasize):
 
     if datasize == 'L':  
-        N, M = 1000, 1200
+        N = 2000
     else:
-        N, M = 2000, 2600
+        N = 4000
 
-    task = autotvm.task.create("test/tvmCholesky_v1", args=(N, M, datasize ,"float64"), target="llvm")
+    task = autotvm.task.create("test/tvmCholesky_v1", args=(N, datasize ,"float64"), target="llvm")
 
 
     # Create a measurement callback with the custom function
@@ -76,7 +76,7 @@ def main(datasize):
     path = resultsPath + "tvmXGBTuner.json"
     start = time.time()
     tuner.tune(
-    n_trial=100,
+    n_trial=5,
     measure_option=measure_option,
     callbacks=[autotvm.callback.log_to_file(path)]
     )
@@ -86,8 +86,9 @@ def main(datasize):
 
     with autotvm.apply_history_best(path):
         with tvm.target.Target("llvm"):
-            s, arg_bufs = Cholesky_v1(N, M,datasize,"float64") #float64 
+            s, arg_bufs = Cholesky_v1(N, datasize,"float64") #float64 
             func = tvm.build(s, arg_bufs)
+            
 
 if __name__ == '__main__':
     try:
