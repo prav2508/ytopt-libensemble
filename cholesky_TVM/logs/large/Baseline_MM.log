@@ -1,3 +1,3 @@
-root - INFO - TVM Baseline Matrix Multiplication - 2023-07-25 13:08:13.744369
+root - INFO - TVM Baseline Matrix Multiplication - 2023-07-25 15:15:21.733852
 root - INFO - Matrix shape(2000, 2000)
-root - INFO - Elpased time = 4.36 secs
+root - INFO - Elpased time = 3.714 secs

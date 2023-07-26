@@ -1,0 +1,3130 @@
+root - INFO - GridSearch Tuner Matrix Multiplication - 2023-07-25 17:29:05.292897
+autotvm - DEBUG - waiting for device...
+autotvm - DEBUG - device available
+autotvm - INFO - Get devices for measurement successfully!
+autotvm - DEBUG - No: 1	GFLOPS: 0.00/0.00	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 1), ('tile_xT', 1)],None,0
+autotvm - DEBUG - No: 2	GFLOPS: 0.00/0.00	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 2), ('tile_xT', 1)],None,1
+autotvm - DEBUG - No: 3	GFLOPS: 0.00/0.00	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 4), ('tile_xT', 1)],None,2
+autotvm - DEBUG - No: 4	GFLOPS: 0.00/0.00	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 5), ('tile_xT', 1)],None,3
+autotvm - DEBUG - No: 5	GFLOPS: 1.69/1.69	result: MeasureResult(costs=(75.644270623,), error_no=MeasureErrorNo.NO_ERROR, all_cost=156.28241896629333, timestamp=1690325108.348543)	[('tile_x', 8), ('tile_xT', 1)],None,4
+autotvm - DEBUG - No: 6	GFLOPS: 0.00/1.69	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 10), ('tile_xT', 1)],None,5
+autotvm - DEBUG - No: 7	GFLOPS: 0.00/1.69	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 16), ('tile_xT', 1)],None,6
+autotvm - DEBUG - No: 8	GFLOPS: 2.11/2.11	result: MeasureResult(costs=(60.771078214,), error_no=MeasureErrorNo.NO_ERROR, all_cost=127.29131627082825, timestamp=1690325636.186963)	[('tile_x', 20), ('tile_xT', 1)],None,7
+autotvm - DEBUG - No: 9	GFLOPS: 2.33/2.33	result: MeasureResult(costs=(54.890348926,), error_no=MeasureErrorNo.NO_ERROR, all_cost=117.27298402786255, timestamp=1690325753.4660902)	[('tile_x', 25), ('tile_xT', 1)],None,8
+autotvm - DEBUG - No: 10	GFLOPS: 2.79/2.79	result: MeasureResult(costs=(45.82768867,), error_no=MeasureErrorNo.NO_ERROR, all_cost=102.4092710018158, timestamp=1690325855.8376389)	[('tile_x', 40), ('tile_xT', 1)],None,9
+autotvm - DEBUG - No: 11	GFLOPS: 2.97/2.97	result: MeasureResult(costs=(43.119597549,), error_no=MeasureErrorNo.NO_ERROR, all_cost=89.42712092399597, timestamp=1690325945.2452056)	[('tile_x', 50), ('tile_xT', 1)],None,10
+autotvm - DEBUG - No: 12	GFLOPS: 2.37/2.97	result: MeasureResult(costs=(54.016566628,), error_no=MeasureErrorNo.NO_ERROR, all_cost=107.49980998039246, timestamp=1690326052.7448084)	[('tile_x', 80), ('tile_xT', 1)],None,11
+autotvm - DEBUG - No: 13	GFLOPS: 2.60/2.97	result: MeasureResult(costs=(49.258397231000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=102.01282930374146, timestamp=1690326154.7137477)	[('tile_x', 100), ('tile_xT', 1)],None,12
+autotvm - DEBUG - No: 14	GFLOPS: 2.06/2.97	result: MeasureResult(costs=(62.182819407000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=123.0274395942688, timestamp=1690326277.7203972)	[('tile_x', 125), ('tile_xT', 1)],None,13
+autotvm - DEBUG - No: 15	GFLOPS: 2.39/2.97	result: MeasureResult(costs=(53.528168705,), error_no=MeasureErrorNo.NO_ERROR, all_cost=109.87293148040771, timestamp=1690326387.57325)	[('tile_x', 200), ('tile_xT', 1)],None,14
+autotvm - DEBUG - No: 16	GFLOPS: 2.35/2.97	result: MeasureResult(costs=(54.474024701000005,), error_no=MeasureErrorNo.NO_ERROR, all_cost=114.16622495651245, timestamp=1690326501.721996)	[('tile_x', 250), ('tile_xT', 1)],None,15
+autotvm - DEBUG - No: 17	GFLOPS: 2.35/2.97	result: MeasureResult(costs=(54.578873808999994,), error_no=MeasureErrorNo.NO_ERROR, all_cost=115.55700969696045, timestamp=1690326617.233139)	[('tile_x', 400), ('tile_xT', 1)],None,16
+autotvm - DEBUG - No: 18	GFLOPS: 2.41/2.97	result: MeasureResult(costs=(53.155109585,), error_no=MeasureErrorNo.NO_ERROR, all_cost=109.55496048927307, timestamp=1690326726.734633)	[('tile_x', 500), ('tile_xT', 1)],None,17
+autotvm - DEBUG - No: 19	GFLOPS: 3.11/3.11	result: MeasureResult(costs=(41.16352345,), error_no=MeasureErrorNo.NO_ERROR, all_cost=88.21993350982666, timestamp=1690326814.9554513)	[('tile_x', 1000), ('tile_xT', 1)],None,18
+autotvm - DEBUG - No: 20	GFLOPS: 3.58/3.58	result: MeasureResult(costs=(35.798501837,), error_no=MeasureErrorNo.NO_ERROR, all_cost=76.94751358032227, timestamp=1690326891.895911)	[('tile_x', 2000), ('tile_xT', 1)],None,19
+autotvm - DEBUG - No: 21	GFLOPS: 0.00/3.58	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 1), ('tile_xT', 2)],None,20
+autotvm - DEBUG - No: 22	GFLOPS: 0.00/3.58	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 2), ('tile_xT', 2)],None,21
+autotvm - DEBUG - No: 23	GFLOPS: 0.00/3.58	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 4), ('tile_xT', 2)],None,22
+autotvm - DEBUG - No: 24	GFLOPS: 0.00/3.58	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 5), ('tile_xT', 2)],None,23
+autotvm - DEBUG - No: 25	GFLOPS: 2.46/3.58	result: MeasureResult(costs=(52.03137288200001,), error_no=MeasureErrorNo.NO_ERROR, all_cost=116.99532008171082, timestamp=1690327809.963448)	[('tile_x', 8), ('tile_xT', 2)],None,24
+autotvm - DEBUG - No: 26	GFLOPS: 0.00/3.58	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 10), ('tile_xT', 2)],None,25
+autotvm - DEBUG - No: 27	GFLOPS: 0.00/3.58	result: Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
+    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
+    costs = time_f(*args).results
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
+    blob = feval(*args)
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
+  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
+  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  3: TVMFuncCall
+  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
+  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
+  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
+    with module_loader(remote_kwargs, build_result) as (remote, mod):
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
+    remote.remove(build_result.filename)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
+    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
+    return self._sess.get_function(name)
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
+    check_call(
+  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
+    raise get_last_ffi_error()
+tvm._ffi.base.TVMError: Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  81: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  80: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  79: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  78: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  77: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  76: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  75: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  74: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  73: cfunction_vectorcall_FASTCALL
+        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
+  72: builtin_exec
+        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
+  71: builtin_exec_impl
+        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
+  70: PyEval_EvalCode
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
+  69: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  68: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  67: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  66: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  65: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  64: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  63: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  62: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  61: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  60: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
+  59: do_call_core
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
+  58: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  57: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  56: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  55: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
+  54: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  53: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  52: method_vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
+  51: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  50: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  49: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  48: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  47: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  46: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  45: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  44: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  43: method_vectorcall_VARARGS
+        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
+  42: gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
+  41: _gen_throw
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
+  40: gen_send_ex
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
+  39: gen_send_ex2
+        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
+  38: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  37: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  36: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  35: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  34: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  33: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  32: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  31: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  30: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  29: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  28: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  27: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  26: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  25: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  24: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  23: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
+  22: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  21: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  20: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
+  19: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  18: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  17: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  16: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
+  15: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  14: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
+  13: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
+  12: _PyObject_VectorcallTstate
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
+  11: _PyObject_MakeTpCall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
+  10: PyCFuncPtr_call
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
+  9: _ctypes_callproc
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
+  8: _call_function_pointer
+        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
+  7: ffi_call
+  6: ffi_call_int
+  5: ffi_call_unix64
+  4: TVMModGetFunction
+  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
+  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
+  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
+  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
+  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
+TVMError: 
+---------------------------------------------------------------
+An error occurred during the execution of TVM.
+For more information, please see: https://tvm.apache.org/docs/errors.html
+---------------------------------------------------------------
+  Check failed: (code == RPCCode::kReturn) is false: code=1
+
+Traceback (most recent call last):
+  94: 0xffffffffffffffff
+  93: 0x000000000058c1ed
+  92: __libc_start_main
+  91: Py_BytesMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
+  90: Py_RunMain
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
+  89: pymain_run_python
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
+  88: pymain_run_module
+        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
+  87: _PyFunction_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
+  86: _PyEval_Vector
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
+  85: _PyEval_EvalFrame
+        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
+  84: _PyEval_EvalFrameDefault
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
+  83: call_function
+        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
+  82: PyObject_Vectorcall
+        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 16), ('tile_xT', 2)],None,26
+autotvm - DEBUG - No: 28	GFLOPS: 2.53/3.58	result: MeasureResult(costs=(50.581114201999995,), error_no=MeasureErrorNo.NO_ERROR, all_cost=103.15799283981323, timestamp=1690328313.4433858)	[('tile_x', 20), ('tile_xT', 2)],None,27
+autotvm - DEBUG - No: 29	GFLOPS: 2.55/3.58	result: MeasureResult(costs=(50.276972961,), error_no=MeasureErrorNo.NO_ERROR, all_cost=105.86445546150208, timestamp=1690328419.2397995)	[('tile_x', 25), ('tile_xT', 2)],None,28
+autotvm - DEBUG - No: 30	GFLOPS: 3.95/3.95	result: MeasureResult(costs=(32.367451220999996,), error_no=MeasureErrorNo.NO_ERROR, all_cost=71.84445381164551, timestamp=1690328491.0602467)	[('tile_x', 40), ('tile_xT', 2)],None,29
+autotvm - DEBUG - No: 31	GFLOPS: 3.83/3.95	result: MeasureResult(costs=(33.403210423,), error_no=MeasureErrorNo.NO_ERROR, all_cost=73.14970302581787, timestamp=1690328564.151956)	[('tile_x', 50), ('tile_xT', 2)],None,30
+autotvm - DEBUG - No: 32	GFLOPS: 3.17/3.95	result: MeasureResult(costs=(40.398235573,), error_no=MeasureErrorNo.NO_ERROR, all_cost=98.36319828033447, timestamp=1690328662.552581)	[('tile_x', 80), ('tile_xT', 2)],None,31
+autotvm - DEBUG - No: 33	GFLOPS: 3.31/3.95	result: MeasureResult(costs=(38.704595025,), error_no=MeasureErrorNo.NO_ERROR, all_cost=85.05479645729065, timestamp=1690328747.6218967)	[('tile_x', 100), ('tile_xT', 2)],None,32
+autotvm - DEBUG - No: 34	GFLOPS: 2.93/3.95	result: MeasureResult(costs=(43.694531109,), error_no=MeasureErrorNo.NO_ERROR, all_cost=94.77054381370544, timestamp=1690328842.1581068)	[('tile_x', 125), ('tile_xT', 2)],None,33
+autotvm - DEBUG - No: 35	GFLOPS: 3.57/3.95	result: MeasureResult(costs=(35.822856099,), error_no=MeasureErrorNo.NO_ERROR, all_cost=75.85480117797852, timestamp=1690328917.8582494)	[('tile_x', 200), ('tile_xT', 2)],None,34
+autotvm - DEBUG - No: 36	GFLOPS: 3.56/3.95	result: MeasureResult(costs=(35.946929632999996,), error_no=MeasureErrorNo.NO_ERROR, all_cost=74.9086434841156, timestamp=1690328992.7065928)	[('tile_x', 250), ('tile_xT', 2)],None,35
+autotvm - DEBUG - No: 37	GFLOPS: 3.59/3.95	result: MeasureResult(costs=(35.650350407,), error_no=MeasureErrorNo.NO_ERROR, all_cost=77.085702419281, timestamp=1690329069.69227)	[('tile_x', 400), ('tile_xT', 2)],None,36
+autotvm - DEBUG - No: 38	GFLOPS: 3.67/3.95	result: MeasureResult(costs=(34.849135576,), error_no=MeasureErrorNo.NO_ERROR, all_cost=73.13475584983826, timestamp=1690329142.8411129)	[('tile_x', 500), ('tile_xT', 2)],None,37
+autotvm - DEBUG - No: 39	GFLOPS: 4.41/4.41	result: MeasureResult(costs=(29.045087973999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.908642530441284, timestamp=1690329203.7079804)	[('tile_x', 1000), ('tile_xT', 2)],None,38
+autotvm - DEBUG - No: 40	GFLOPS: 4.94/4.94	result: MeasureResult(costs=(25.925387709,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.50472402572632, timestamp=1690329258.166143)	[('tile_x', 2000), ('tile_xT', 2)],None,39
+autotvm - DEBUG - No: 41	GFLOPS: 1.49/4.94	result: MeasureResult(costs=(85.644051081,), error_no=MeasureErrorNo.NO_ERROR, all_cost=173.63166117668152, timestamp=1690329431.7769125)	[('tile_x', 1), ('tile_xT', 4)],None,40
+autotvm - DEBUG - No: 42	GFLOPS: 1.77/4.94	result: MeasureResult(costs=(72.43378783200001,), error_no=MeasureErrorNo.NO_ERROR, all_cost=148.4462468624115, timestamp=1690329580.0965471)	[('tile_x', 2), ('tile_xT', 4)],None,41
+autotvm - DEBUG - No: 43	GFLOPS: 1.82/4.94	result: MeasureResult(costs=(70.485702503,), error_no=MeasureErrorNo.NO_ERROR, all_cost=143.84463596343994, timestamp=1690329723.7210257)	[('tile_x', 4), ('tile_xT', 4)],None,42
+autotvm - DEBUG - No: 44	GFLOPS: 2.48/4.94	result: MeasureResult(costs=(51.612433132999996,), error_no=MeasureErrorNo.NO_ERROR, all_cost=108.96864151954651, timestamp=1690329832.6186042)	[('tile_x', 5), ('tile_xT', 4)],None,43
+autotvm - DEBUG - No: 45	GFLOPS: 2.83/4.94	result: MeasureResult(costs=(45.225622089,), error_no=MeasureErrorNo.NO_ERROR, all_cost=111.3780951499939, timestamp=1690329943.7829134)	[('tile_x', 8), ('tile_xT', 4)],None,44
+autotvm - DEBUG - No: 46	GFLOPS: 2.62/4.94	result: MeasureResult(costs=(48.943284239,), error_no=MeasureErrorNo.NO_ERROR, all_cost=105.93472933769226, timestamp=1690330049.518645)	[('tile_x', 10), ('tile_xT', 4)],None,45
+autotvm - DEBUG - No: 47	GFLOPS: 3.19/4.94	result: MeasureResult(costs=(40.07164375200001,), error_no=MeasureErrorNo.NO_ERROR, all_cost=95.61812353134155, timestamp=1690330144.9392402)	[('tile_x', 16), ('tile_xT', 4)],None,46
+autotvm - DEBUG - No: 48	GFLOPS: 3.26/4.94	result: MeasureResult(costs=(39.217980724,), error_no=MeasureErrorNo.NO_ERROR, all_cost=88.84389925003052, timestamp=1690330233.7102966)	[('tile_x', 20), ('tile_xT', 4)],None,47
+autotvm - DEBUG - No: 49	GFLOPS: 3.37/4.94	result: MeasureResult(costs=(37.985426883,), error_no=MeasureErrorNo.NO_ERROR, all_cost=90.72097134590149, timestamp=1690330324.1615434)	[('tile_x', 25), ('tile_xT', 4)],None,48
+autotvm - DEBUG - No: 50	GFLOPS: 4.11/4.94	result: MeasureResult(costs=(31.148381766,), error_no=MeasureErrorNo.NO_ERROR, all_cost=71.84828567504883, timestamp=1690330395.9487367)	[('tile_x', 40), ('tile_xT', 4)],None,49
+autotvm - DEBUG - No: 51	GFLOPS: 4.40/4.94	result: MeasureResult(costs=(29.082749309,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.235588788986206, timestamp=1690330456.074721)	[('tile_x', 50), ('tile_xT', 4)],None,50
+autotvm - DEBUG - No: 52	GFLOPS: 4.08/4.94	result: MeasureResult(costs=(31.340196491,), error_no=MeasureErrorNo.NO_ERROR, all_cost=64.35407543182373, timestamp=1690330520.199326)	[('tile_x', 80), ('tile_xT', 4)],None,51
+autotvm - DEBUG - No: 53	GFLOPS: 4.06/4.94	result: MeasureResult(costs=(31.527273927,), error_no=MeasureErrorNo.NO_ERROR, all_cost=66.8839738368988, timestamp=1690330586.8649967)	[('tile_x', 100), ('tile_xT', 4)],None,52
+autotvm - DEBUG - No: 54	GFLOPS: 3.82/4.94	result: MeasureResult(costs=(33.495336075,), error_no=MeasureErrorNo.NO_ERROR, all_cost=69.33850431442261, timestamp=1690330655.9648716)	[('tile_x', 125), ('tile_xT', 4)],None,53
+autotvm - DEBUG - No: 55	GFLOPS: 5.00/5.00	result: MeasureResult(costs=(25.608700853,), error_no=MeasureErrorNo.NO_ERROR, all_cost=55.81516790390015, timestamp=1690330711.547135)	[('tile_x', 200), ('tile_xT', 4)],None,54
+autotvm - DEBUG - No: 56	GFLOPS: 4.70/5.00	result: MeasureResult(costs=(27.251843028,), error_no=MeasureErrorNo.NO_ERROR, all_cost=55.528868198394775, timestamp=1690330767.0718799)	[('tile_x', 250), ('tile_xT', 4)],None,55
+autotvm - DEBUG - No: 57	GFLOPS: 5.01/5.01	result: MeasureResult(costs=(25.569221395,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.91953897476196, timestamp=1690330820.008163)	[('tile_x', 400), ('tile_xT', 4)],None,56
+autotvm - DEBUG - No: 58	GFLOPS: 4.91/5.01	result: MeasureResult(costs=(26.081870993,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.0943329334259, timestamp=1690330874.0124276)	[('tile_x', 500), ('tile_xT', 4)],None,57
+autotvm - DEBUG - No: 59	GFLOPS: 5.86/5.86	result: MeasureResult(costs=(21.825646741,), error_no=MeasureErrorNo.NO_ERROR, all_cost=45.83534002304077, timestamp=1690330919.6294405)	[('tile_x', 1000), ('tile_xT', 4)],None,58
+autotvm - DEBUG - No: 60	GFLOPS: 6.23/6.23	result: MeasureResult(costs=(20.543612968,), error_no=MeasureErrorNo.NO_ERROR, all_cost=43.03368926048279, timestamp=1690330962.647086)	[('tile_x', 2000), ('tile_xT', 4)],None,59
+autotvm - DEBUG - No: 61	GFLOPS: 1.71/6.23	result: MeasureResult(costs=(74.867703152,), error_no=MeasureErrorNo.NO_ERROR, all_cost=152.01985335350037, timestamp=1690331114.6443565)	[('tile_x', 1), ('tile_xT', 5)],None,60
+autotvm - DEBUG - No: 62	GFLOPS: 1.88/6.23	result: MeasureResult(costs=(68.035326545,), error_no=MeasureErrorNo.NO_ERROR, all_cost=141.77387475967407, timestamp=1690331256.2353978)	[('tile_x', 2), ('tile_xT', 5)],None,61
+autotvm - DEBUG - No: 63	GFLOPS: 2.09/6.23	result: MeasureResult(costs=(61.235669075,), error_no=MeasureErrorNo.NO_ERROR, all_cost=138.5037877559662, timestamp=1690331394.5018342)	[('tile_x', 4), ('tile_xT', 5)],None,62
+autotvm - DEBUG - No: 64	GFLOPS: 2.80/6.23	result: MeasureResult(costs=(45.678762690000006,), error_no=MeasureErrorNo.NO_ERROR, all_cost=100.26171708106995, timestamp=1690331494.530759)	[('tile_x', 5), ('tile_xT', 5)],None,63
+autotvm - DEBUG - No: 65	GFLOPS: 2.43/6.23	result: MeasureResult(costs=(52.590580777,), error_no=MeasureErrorNo.NO_ERROR, all_cost=116.87417984008789, timestamp=1690331611.3629167)	[('tile_x', 8), ('tile_xT', 5)],None,64
+autotvm - DEBUG - No: 66	GFLOPS: 2.73/6.23	result: MeasureResult(costs=(46.967642459000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=102.256507396698, timestamp=1690331713.4039402)	[('tile_x', 10), ('tile_xT', 5)],None,65
+autotvm - DEBUG - No: 67	GFLOPS: 2.24/6.23	result: MeasureResult(costs=(57.101759033,), error_no=MeasureErrorNo.NO_ERROR, all_cost=122.71815013885498, timestamp=1690331836.1019175)	[('tile_x', 16), ('tile_xT', 5)],None,66
+autotvm - DEBUG - No: 68	GFLOPS: 3.56/6.23	result: MeasureResult(costs=(35.968485969,), error_no=MeasureErrorNo.NO_ERROR, all_cost=82.8807282447815, timestamp=1690331918.7463744)	[('tile_x', 20), ('tile_xT', 5)],None,67
+autotvm - DEBUG - No: 69	GFLOPS: 3.69/6.23	result: MeasureResult(costs=(34.719496652000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=71.27685904502869, timestamp=1690331990.017468)	[('tile_x', 25), ('tile_xT', 5)],None,68
+autotvm - DEBUG - No: 70	GFLOPS: 5.00/6.23	result: MeasureResult(costs=(25.610161875000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=53.37013244628906, timestamp=1690332043.1267912)	[('tile_x', 40), ('tile_xT', 5)],None,69
+autotvm - DEBUG - No: 71	GFLOPS: 4.24/6.23	result: MeasureResult(costs=(30.209648569000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=62.835084199905396, timestamp=1690332105.6898906)	[('tile_x', 50), ('tile_xT', 5)],None,70
+autotvm - DEBUG - No: 72	GFLOPS: 4.53/6.23	result: MeasureResult(costs=(28.26551724,), error_no=MeasureErrorNo.NO_ERROR, all_cost=61.4563353061676, timestamp=1690332167.0320716)	[('tile_x', 80), ('tile_xT', 5)],None,71
+autotvm - DEBUG - No: 73	GFLOPS: 4.58/6.23	result: MeasureResult(costs=(27.933219629,), error_no=MeasureErrorNo.NO_ERROR, all_cost=62.97568154335022, timestamp=1690332229.803729)	[('tile_x', 100), ('tile_xT', 5)],None,72
+autotvm - DEBUG - No: 74	GFLOPS: 4.60/6.23	result: MeasureResult(costs=(27.816451759,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.51329946517944, timestamp=1690332290.356611)	[('tile_x', 125), ('tile_xT', 5)],None,73
+autotvm - DEBUG - No: 75	GFLOPS: 5.34/6.23	result: MeasureResult(costs=(23.980300743,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.18819522857666, timestamp=1690332342.3062918)	[('tile_x', 200), ('tile_xT', 5)],None,74
+autotvm - DEBUG - No: 76	GFLOPS: 5.25/6.23	result: MeasureResult(costs=(24.361424924999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=49.88652491569519, timestamp=1690332392.148076)	[('tile_x', 250), ('tile_xT', 5)],None,75
+autotvm - DEBUG - No: 77	GFLOPS: 5.53/6.23	result: MeasureResult(costs=(23.156138539,), error_no=MeasureErrorNo.NO_ERROR, all_cost=47.36334586143494, timestamp=1690332439.5343459)	[('tile_x', 400), ('tile_xT', 5)],None,76
+autotvm - DEBUG - No: 78	GFLOPS: 5.54/6.23	result: MeasureResult(costs=(23.119134685000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=50.42142581939697, timestamp=1690332489.7634814)	[('tile_x', 500), ('tile_xT', 5)],None,77
+autotvm - DEBUG - No: 79	GFLOPS: 6.02/6.23	result: MeasureResult(costs=(21.25824769,), error_no=MeasureErrorNo.NO_ERROR, all_cost=44.09875464439392, timestamp=1690332533.6638224)	[('tile_x', 1000), ('tile_xT', 5)],None,78
+autotvm - DEBUG - No: 80	GFLOPS: 6.56/6.56	result: MeasureResult(costs=(19.509096817000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.91769313812256, timestamp=1690332575.5155113)	[('tile_x', 2000), ('tile_xT', 5)],None,79
+autotvm - DEBUG - No: 81	GFLOPS: 2.19/6.56	result: MeasureResult(costs=(58.413041825,), error_no=MeasureErrorNo.NO_ERROR, all_cost=120.64836144447327, timestamp=1690332696.1143162)	[('tile_x', 1), ('tile_xT', 10)],None,80
+autotvm - DEBUG - No: 82	GFLOPS: 2.47/6.56	result: MeasureResult(costs=(51.913462728,), error_no=MeasureErrorNo.NO_ERROR, all_cost=105.40003633499146, timestamp=1690332801.4920385)	[('tile_x', 2), ('tile_xT', 10)],None,81
+autotvm - DEBUG - No: 83	GFLOPS: 2.53/6.56	result: MeasureResult(costs=(50.550943222,), error_no=MeasureErrorNo.NO_ERROR, all_cost=103.01755738258362, timestamp=1690332904.3927135)	[('tile_x', 4), ('tile_xT', 10)],None,82
+autotvm - DEBUG - No: 84	GFLOPS: 2.25/6.56	result: MeasureResult(costs=(56.78581674,), error_no=MeasureErrorNo.NO_ERROR, all_cost=118.59463882446289, timestamp=1690333022.752505)	[('tile_x', 5), ('tile_xT', 10)],None,83
+autotvm - DEBUG - No: 85	GFLOPS: 3.25/6.56	result: MeasureResult(costs=(39.421521583,), error_no=MeasureErrorNo.NO_ERROR, all_cost=80.64042520523071, timestamp=1690333103.2260444)	[('tile_x', 8), ('tile_xT', 10)],None,84
+autotvm - DEBUG - No: 86	GFLOPS: 3.83/6.56	result: MeasureResult(costs=(33.402978192,), error_no=MeasureErrorNo.NO_ERROR, all_cost=68.28648972511292, timestamp=1690333171.3652177)	[('tile_x', 10), ('tile_xT', 10)],None,85
+autotvm - DEBUG - No: 87	GFLOPS: 4.32/6.56	result: MeasureResult(costs=(29.649335133,), error_no=MeasureErrorNo.NO_ERROR, all_cost=61.546239137649536, timestamp=1690333232.6348104)	[('tile_x', 16), ('tile_xT', 10)],None,86
+autotvm - DEBUG - No: 88	GFLOPS: 3.37/6.56	result: MeasureResult(costs=(37.969391861,), error_no=MeasureErrorNo.NO_ERROR, all_cost=78.03660583496094, timestamp=1690333310.5383177)	[('tile_x', 20), ('tile_xT', 10)],None,87
+autotvm - DEBUG - No: 89	GFLOPS: 4.35/6.56	result: MeasureResult(costs=(29.443326670999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=62.11436438560486, timestamp=1690333372.5130482)	[('tile_x', 25), ('tile_xT', 10)],None,88
+autotvm - DEBUG - No: 90	GFLOPS: 4.82/6.56	result: MeasureResult(costs=(26.573393653,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.894843339920044, timestamp=1690333427.07448)	[('tile_x', 40), ('tile_xT', 10)],None,89
+autotvm - DEBUG - No: 91	GFLOPS: 4.89/6.56	result: MeasureResult(costs=(26.185942349,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.40474534034729, timestamp=1690333481.1290617)	[('tile_x', 50), ('tile_xT', 10)],None,90
+autotvm - DEBUG - No: 92	GFLOPS: 5.32/6.56	result: MeasureResult(costs=(24.062439939,), error_no=MeasureErrorNo.NO_ERROR, all_cost=49.90946674346924, timestamp=1690333530.8100348)	[('tile_x', 80), ('tile_xT', 10)],None,91
+autotvm - DEBUG - No: 93	GFLOPS: 7.71/7.71	result: MeasureResult(costs=(16.607548152,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.28523826599121, timestamp=1690333565.847549)	[('tile_x', 100), ('tile_xT', 10)],None,92
+autotvm - DEBUG - No: 94	GFLOPS: 5.51/7.71	result: MeasureResult(costs=(23.241111704999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=48.31451225280762, timestamp=1690333613.9094274)	[('tile_x', 125), ('tile_xT', 10)],None,93
+autotvm - DEBUG - No: 95	GFLOPS: 6.64/7.71	result: MeasureResult(costs=(19.262817309,), error_no=MeasureErrorNo.NO_ERROR, all_cost=39.967132329940796, timestamp=1690333653.6536002)	[('tile_x', 200), ('tile_xT', 10)],None,94
+autotvm - DEBUG - No: 96	GFLOPS: 6.46/7.71	result: MeasureResult(costs=(19.820728481,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.89938163757324, timestamp=1690333694.4974422)	[('tile_x', 250), ('tile_xT', 10)],None,95
+autotvm - DEBUG - No: 97	GFLOPS: 6.48/7.71	result: MeasureResult(costs=(19.753642874,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.10364842414856, timestamp=1690333735.337423)	[('tile_x', 400), ('tile_xT', 10)],None,96
+autotvm - DEBUG - No: 98	GFLOPS: 6.66/7.71	result: MeasureResult(costs=(19.222493333,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.119370222091675, timestamp=1690333775.296763)	[('tile_x', 500), ('tile_xT', 10)],None,97
+autotvm - DEBUG - No: 99	GFLOPS: 7.19/7.71	result: MeasureResult(costs=(17.802949088000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=37.18151307106018, timestamp=1690333812.492199)	[('tile_x', 1000), ('tile_xT', 10)],None,98
+autotvm - DEBUG - No: 100	GFLOPS: 7.52/7.71	result: MeasureResult(costs=(17.024992055,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.23983120918274, timestamp=1690333848.4609823)	[('tile_x', 2000), ('tile_xT', 10)],None,99
+root - INFO - Elpased time = 9703.389659643173
+autotvm - DEBUG - Finish loading 100 records
