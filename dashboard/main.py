@@ -2,7 +2,19 @@ import streamlit as st
 import json
 import csv
 import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 
+st.set_page_config(
+    page_title="Autotuning Apache TVM Applications Using ytopt",
+    page_icon="🧊",
+    layout="centered",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get help': 'https://github.com/prav2508/ytopt-libensemble/tree/main/dashboard',
+        'About': "https://github.com/prav2508/ytopt"
+    }
+)
 
 paths = {
     "Gems (Matrix Multiplication)" : {
@@ -107,22 +119,33 @@ YtoptResults = {
      "elapsed":[ytopData[d]["elapsed"] for d in ytopData.keys()]
 }
 
-
+def find_min_excluding_zero(list):
+  min_value = float("inf")
+  for value in list:
+    if value != 0 and value < min_value:
+      min_value = value
+  return min_value
 # st.write(GridSearchTunerResults)
 
 
-plt.plot(GATunerResults["elapsed"], GATunerResults["runtime"],marker='o',alpha=0.7)
-plt.plot(RandomTunerResults["elapsed"], RandomTunerResults["runtime"],marker='o',alpha=0.7)
-plt.plot(GATunerResults["elapsed"], GATunerResults["runtime"],marker='o',alpha=0.7)
-plt.plot(XGBTunerResults["elapsed"], XGBTunerResults["runtime"],marker='o',alpha=0.7)
-plt.plot(YtoptResults["elapsed"], YtoptResults["runtime"],marker='o',alpha=0.7)
+plt.plot(GATunerResults["elapsed"], np.log(GATunerResults["runtime"]),marker='o',alpha=0.9)
+plt.plot(RandomTunerResults["elapsed"], np.log(RandomTunerResults["runtime"]),marker='o',alpha=0.7)
+plt.plot(GATunerResults["elapsed"], np.log(GATunerResults["runtime"]),marker='o',alpha=0.7)
+plt.plot(XGBTunerResults["elapsed"], np.log(XGBTunerResults["runtime"]),marker='o',alpha=0.7)
+plt.plot(YtoptResults["elapsed"], np.log(YtoptResults["runtime"]),marker='o',alpha=0.7)
 
 
 
 plt.legend(['AutoTVM - GA','AutoTVM - Random','AutoTVM - GridSearch','AutoTVM - XGB','YTOPT Tuner'], loc='upper right')
 plt.xlabel("Cummulative time(secs)")
 plt.ylabel("Runtime(secs)")
-plt.title("Performance of Matrix Multiplication (AutoTVM vs YTOPT)")
+plt.title("Performance of {} (AutoTVM vs YTOPT)".format(option))
 
 
 st.pyplot(plt)
+
+st.header("Minimum Runtime")
+fig, ax = plt.subplots()
+ax.bar(["GA","YTOPT","XGB","GridSearch","Random"], [find_min_excluding_zero(GATunerResults["runtime"]),find_min_excluding_zero(YtoptResults["runtime"]),find_min_excluding_zero(XGBTunerResults["runtime"]),find_min_excluding_zero(GridSearchTunerResults["runtime"]),find_min_excluding_zero(RandomTunerResults["runtime"])],color=['#d47b85', '#c8fac9', '#7cb2e6', '#dee08b', '#6fe1f2'],)
+ax.set_ylabel("Runtime(secs)")
+st.pyplot(fig)

@@ -69,7 +69,7 @@ def main(datasize):
     # Create a measurement callback with the custom function
 
     measure_option = autotvm.measure_option(builder="local", 
-                                            runner=autotvm.LocalRunner(number=1, repeat=1, timeout=200), # timeout=20
+                                            runner=autotvm.LocalRunner(number=1, repeat=1, timeout=500), # timeout=20
                                             )
 
     tuner = autotvm.tuner.XGBTuner(task)
