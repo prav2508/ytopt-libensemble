@@ -4,6 +4,7 @@ import csv
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 st.set_page_config(
     page_title="Autotuning Apache TVM Applications Using ytopt",
@@ -54,39 +55,49 @@ config = st.radio(
 data = {}
 ytopData = {}
 
-for file in fileNameTVM:
-    with open(paths[option]["tvm"]+configPath[config]+file, 'r') as handle:
-        data[file[3:-5]] = [json.loads(line) for line in handle]
+try:
+    for file in fileNameTVM:
+        file_path = Path(paths[option]["tvm"]+configPath[config]+file)
+        # data[file[3:-5]] = json.loads(file_path.read_bytes())
+    # print(data)
+    # for file in fileNameTVM:
+        with open(file_path, 'r') as handle:
+            data[file[3:-5]] = [json.loads(line) for line in handle]
 
-with open(paths[option]["ytopt"]+configPath[config]+"results.csv", 'r') as file:
-        reader = csv.reader(file)
-        header = next(reader) 
-        i=1
-        if option == "Gems (Matrix Multiplication)" or option == "Cholesky":
-             
-            for row in reader:
-                object = {}
-                runtime = round(float(row[2]),2) 
-                elapsed = round(float(row[3]),2)
-                # object['tile_y'] = row[0]
-                # object['tile_x'] = row[1]
-                object['runtime'] = runtime
-                object['elapsed'] = elapsed
+    file_path_ytopt = Path(paths[option]["ytopt"]+configPath[config]+"results.csv")
+    with open(file_path_ytopt, mode='r') as file:
+            reader = csv.reader(file)
+            header = next(reader) 
+            i=1
+            if option == "Gems (Matrix Multiplication)" or option == "Cholesky":
+                
+                for row in reader:
+                    object = {}
+                    runtime = round(float(row[2]),2) 
+                    elapsed = round(float(row[3]),2)
+                    # object['tile_y'] = row[0]
+                    # object['tile_x'] = row[1]
+                    object['runtime'] = runtime
+                    object['elapsed'] = elapsed
 
-                ytopData[i] = object
-                i += 1
-        else:
-              for row in reader:
-                object = {}
-                runtime = round(float(row[6]),2) 
-                elapsed = round(float(row[7]),2)
+                    ytopData[i] = object
+                    i += 1
+            else:
+                for row in reader:
+                    object = {}
+                    runtime = round(float(row[6]),2) 
+                    elapsed = round(float(row[7]),2)
 
-                object['runtime'] = runtime
-                object['elapsed'] = elapsed
+                    object['runtime'] = runtime
+                    object['elapsed'] = elapsed
 
-                ytopData[i] = object
-                i += 1
-             
+                    ytopData[i] = object
+                    i += 1
+except FileNotFoundError:
+    print(f"The file '{file_path}' does not exist.")
+except Exception as e:
+    print(f"An error occurred while reading the file: {e}")
+                
 
 RTstartTime = round(data["RandomTuner"][0]['result'][3],2)
 RandomTunerResults = {
