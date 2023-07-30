@@ -58,12 +58,13 @@ ytopData = {}
 try:
     for file in fileNameTVM:
         file_path = Path(paths[option]["tvm"]+configPath[config]+file)
+        print(file_path)
         # data[file[3:-5]] = json.loads(file_path.read_bytes())
     # print(data)
     # for file in fileNameTVM:
         with open(file_path, 'r') as handle:
             data[file[3:-5]] = [json.loads(line) for line in handle]
-
+    print(data.keys())
     file_path_ytopt = Path(paths[option]["ytopt"]+configPath[config]+"results.csv")
     with open(file_path_ytopt, mode='r') as file:
             reader = csv.reader(file)
