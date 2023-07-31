@@ -1,566 +1,62 @@
-root - INFO - XGB Tuner Matrix Multiplication - 2023-07-25 22:19:05.023748
+root - INFO - XGB Tuner Matrix Multiplication - 2023-07-27 23:07:30.879081
 autotvm - DEBUG - waiting for device...
 autotvm - DEBUG - device available
 autotvm - INFO - Get devices for measurement successfully!
-autotvm - DEBUG - No: 1	GFLOPS: 3.59/3.59	result: MeasureResult(costs=(35.636123108,), error_no=MeasureErrorNo.NO_ERROR, all_cost=73.23796534538269, timestamp=1690341624.3184035)	[('tile_x', 400), ('tile_xT', 2)],None,36
-autotvm - DEBUG - No: 2	GFLOPS: 3.44/3.59	result: MeasureResult(costs=(37.237785795,), error_no=MeasureErrorNo.NO_ERROR, all_cost=76.36977219581604, timestamp=1690341700.2824259)	[('tile_x', 25), ('tile_xT', 104)],None,248
-autotvm - DEBUG - No: 3	GFLOPS: 2.85/3.59	result: MeasureResult(costs=(44.92633884,), error_no=MeasureErrorNo.NO_ERROR, all_cost=91.96740651130676, timestamp=1690341791.8524983)	[('tile_x', 20), ('tile_xT', 520)],None,327
-autotvm - DEBUG - No: 4	GFLOPS: 4.06/4.06	result: MeasureResult(costs=(31.492673818,), error_no=MeasureErrorNo.NO_ERROR, all_cost=70.7890272140503, timestamp=1690341862.2730424)	[('tile_x', 5), ('tile_xT', 50)],None,183
-autotvm - DEBUG - No: 5	GFLOPS: 7.79/7.79	result: MeasureResult(costs=(16.43620584,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.67302322387695, timestamp=1690341897.553787)	[('tile_x', 500), ('tile_xT', 40)],None,177
-autotvm - DEBUG - No: 6	GFLOPS: 5.16/7.79	result: MeasureResult(costs=(24.818961664,), error_no=MeasureErrorNo.NO_ERROR, all_cost=51.87221002578735, timestamp=1690341948.9952998)	[('tile_x', 20), ('tile_xT', 50)],None,187
-autotvm - DEBUG - No: 7	GFLOPS: 0.00/7.79	result: Traceback (most recent call last):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
-    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
-    costs = time_f(*args).results
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
-    blob = feval(*args)
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
-  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
-tvm._ffi.base.TVMError: Traceback (most recent call last):
-  3: TVMFuncCall
-  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
-  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
-  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
-  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
-TVMError: 
----------------------------------------------------------------
-An error occurred during the execution of TVM.
-For more information, please see: https://tvm.apache.org/docs/errors.html
----------------------------------------------------------------
-  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
-    with module_loader(remote_kwargs, build_result) as (remote, mod):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
-    remote.remove(build_result.filename)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
-    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
-    return self._sess.get_function(name)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
-    check_call(
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
-    raise get_last_ffi_error()
-tvm._ffi.base.TVMError: Traceback (most recent call last):
-  94: 0xffffffffffffffff
-  93: 0x000000000058c1ed
-  92: __libc_start_main
-  91: Py_BytesMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
-  90: Py_RunMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
-  89: pymain_run_python
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
-  88: pymain_run_module
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
-  87: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  86: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  85: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  84: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  83: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  82: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  81: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  80: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  79: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  78: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  77: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  76: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  75: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  74: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  73: cfunction_vectorcall_FASTCALL
-        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
-  72: builtin_exec
-        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
-  71: builtin_exec_impl
-        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
-  70: PyEval_EvalCode
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
-  69: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  68: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  67: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  66: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  65: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  64: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  63: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  62: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  61: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  60: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
-  59: do_call_core
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
-  58: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  57: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  56: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  55: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
-  54: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  53: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  52: method_vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
-  51: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  50: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  49: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  48: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  47: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  46: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  45: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  44: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  43: method_vectorcall_VARARGS
-        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
-  42: gen_throw
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
-  41: _gen_throw
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
-  40: gen_send_ex
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
-  39: gen_send_ex2
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
-  38: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  37: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  36: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  35: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  34: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  33: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  32: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  31: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  30: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  29: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  28: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  27: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  26: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  25: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  24: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  23: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  22: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  21: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  20: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  19: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  18: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  17: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  16: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
-  15: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  14: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  13: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
-  12: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
-  11: _PyObject_MakeTpCall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
-  10: PyCFuncPtr_call
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
-  9: _ctypes_callproc
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
-  8: _call_function_pointer
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
-  7: ffi_call
-  6: ffi_call_int
-  5: ffi_call_unix64
-  4: TVMModGetFunction
-  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
-  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
-  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
-  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
-  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
-TVMError: 
----------------------------------------------------------------
-An error occurred during the execution of TVM.
-For more information, please see: https://tvm.apache.org/docs/errors.html
----------------------------------------------------------------
-  Check failed: (code == RPCCode::kReturn) is false: code=1
-
-Traceback (most recent call last):
-  94: 0xffffffffffffffff
-  93: 0x000000000058c1ed
-  92: __libc_start_main
-  91: Py_BytesMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
-  90: Py_RunMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
-  89: pymain_run_python
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
-  88: pymain_run_module
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
-  87: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  86: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  85: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  84: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  83: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  82: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 5), ('tile_xT', 2600)],None,383
-autotvm - DEBUG - No: 8	GFLOPS: 6.81/7.79	result: MeasureResult(costs=(18.786560828000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=39.12366271018982, timestamp=1690342188.2594516)	[('tile_x', 200), ('tile_xT', 13)],None,114
-autotvm - DEBUG - No: 9	GFLOPS: 7.58/7.79	result: MeasureResult(costs=(16.886927572,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.32545852661133, timestamp=1690342223.5878072)	[('tile_x', 200), ('tile_xT', 20)],None,134
-autotvm - DEBUG - No: 10	GFLOPS: 7.96/7.96	result: MeasureResult(costs=(16.0751596,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.726592779159546, timestamp=1690342257.2869985)	[('tile_x', 250), ('tile_xT', 50)],None,195
-autotvm - DEBUG - No: 11	GFLOPS: 7.20/7.96	result: MeasureResult(costs=(17.788576712999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=38.47755742073059, timestamp=1690342295.3866777)	[('tile_x', 400), ('tile_xT', 20)],None,136
-autotvm - DEBUG - No: 12	GFLOPS: 7.89/7.96	result: MeasureResult(costs=(16.231465899,), error_no=MeasureErrorNo.NO_ERROR, all_cost=34.625295877456665, timestamp=1690342329.9827745)	[('tile_x', 80), ('tile_xT', 40)],None,171
-autotvm - DEBUG - No: 13	GFLOPS: 3.81/7.96	result: MeasureResult(costs=(33.558422539,), error_no=MeasureErrorNo.NO_ERROR, all_cost=68.94396018981934, timestamp=1690342398.565382)	[('tile_x', 10), ('tile_xT', 104)],None,245
-autotvm - DEBUG - No: 14	GFLOPS: 5.25/7.96	result: MeasureResult(costs=(24.401872733,), error_no=MeasureErrorNo.NO_ERROR, all_cost=51.40863490104675, timestamp=1690342449.9589236)	[('tile_x', 250), ('tile_xT', 5)],None,75
-autotvm - DEBUG - No: 15	GFLOPS: 3.55/7.96	result: MeasureResult(costs=(36.055672092,), error_no=MeasureErrorNo.NO_ERROR, all_cost=73.45449137687683, timestamp=1690342523.380311)	[('tile_x', 20), ('tile_xT', 260)],None,287
-autotvm - DEBUG - No: 16	GFLOPS: 5.19/7.96	result: MeasureResult(costs=(24.662875418,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.66887807846069, timestamp=1690342577.6603854)	[('tile_x', 500), ('tile_xT', 4)],None,57
-autotvm - DEBUG - No: 17	GFLOPS: 4.60/7.96	result: MeasureResult(costs=(27.837708771000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=57.197081565856934, timestamp=1690342634.7996387)	[('tile_x', 10), ('tile_xT', 200)],None,265
-autotvm - DEBUG - No: 18	GFLOPS: 0.00/7.96	result: Traceback (most recent call last):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
-    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
-    costs = time_f(*args).results
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
-    blob = feval(*args)
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
-  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
-tvm._ffi.base.TVMError: Traceback (most recent call last):
-  3: TVMFuncCall
-  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
-  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
-  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
-  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
-TVMError: 
----------------------------------------------------------------
-An error occurred during the execution of TVM.
-For more information, please see: https://tvm.apache.org/docs/errors.html
----------------------------------------------------------------
-  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
-    with module_loader(remote_kwargs, build_result) as (remote, mod):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
-    remote.remove(build_result.filename)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
-    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
-    return self._sess.get_function(name)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
-    check_call(
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
-    raise get_last_ffi_error()
-tvm._ffi.base.TVMError: Traceback (most recent call last):
-  94: 0xffffffffffffffff
-  93: 0x000000000058c1ed
-  92: __libc_start_main
-  91: Py_BytesMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
-  90: Py_RunMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
-  89: pymain_run_python
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
-  88: pymain_run_module
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
-  87: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  86: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  85: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  84: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  83: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  82: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  81: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  80: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  79: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  78: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  77: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  76: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  75: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  74: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  73: cfunction_vectorcall_FASTCALL
-        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
-  72: builtin_exec
-        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
-  71: builtin_exec_impl
-        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
-  70: PyEval_EvalCode
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
-  69: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  68: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  67: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  66: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  65: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  64: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  63: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  62: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  61: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  60: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
-  59: do_call_core
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
-  58: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  57: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  56: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  55: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
-  54: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  53: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  52: method_vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
-  51: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  50: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  49: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  48: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  47: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  46: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  45: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  44: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  43: method_vectorcall_VARARGS
-        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
-  42: gen_throw
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
-  41: _gen_throw
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
-  40: gen_send_ex
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
-  39: gen_send_ex2
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
-  38: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  37: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  36: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  35: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  34: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  33: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  32: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  31: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  30: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  29: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  28: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  27: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  26: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  25: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  24: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  23: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  22: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  21: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  20: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  19: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  18: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  17: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  16: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
-  15: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  14: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  13: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
-  12: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
-  11: _PyObject_MakeTpCall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
-  10: PyCFuncPtr_call
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
-  9: _ctypes_callproc
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
-  8: _call_function_pointer
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
-  7: ffi_call
-  6: ffi_call_int
-  5: ffi_call_unix64
-  4: TVMModGetFunction
-  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
-  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
-  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
-  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
-  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
-TVMError: 
----------------------------------------------------------------
-An error occurred during the execution of TVM.
-For more information, please see: https://tvm.apache.org/docs/errors.html
----------------------------------------------------------------
-  Check failed: (code == RPCCode::kReturn) is false: code=1
-
-Traceback (most recent call last):
-  94: 0xffffffffffffffff
-  93: 0x000000000058c1ed
-  92: __libc_start_main
-  91: Py_BytesMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
-  90: Py_RunMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
-  89: pymain_run_python
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
-  88: pymain_run_module
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
-  87: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  86: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  85: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  84: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  83: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  82: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 2), ('tile_xT', 1)],None,1
-autotvm - DEBUG - No: 19	GFLOPS: 4.09/7.96	result: MeasureResult(costs=(31.303909737999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=65.0498309135437, timestamp=1690342899.7006924)	[('tile_x', 16), ('tile_xT', 50)],None,186
-autotvm - DEBUG - No: 20	GFLOPS: 2.58/7.96	result: MeasureResult(costs=(49.706122326,), error_no=MeasureErrorNo.NO_ERROR, all_cost=100.37530255317688, timestamp=1690342999.9503071)	[('tile_x', 8), ('tile_xT', 650)],None,344
-autotvm - DEBUG - No: 21	GFLOPS: 2.02/7.96	result: MeasureResult(costs=(63.459273745,), error_no=MeasureErrorNo.NO_ERROR, all_cost=132.24348092079163, timestamp=1690343132.228401)	[('tile_x', 4), ('tile_xT', 650)],None,342
-autotvm - DEBUG - No: 22	GFLOPS: 3.51/7.96	result: MeasureResult(costs=(36.513752538,), error_no=MeasureErrorNo.NO_ERROR, all_cost=74.49649167060852, timestamp=1690343206.5887501)	[('tile_x', 10), ('tile_xT', 260)],None,285
-autotvm - DEBUG - No: 23	GFLOPS: 3.55/7.96	result: MeasureResult(costs=(36.100850255,), error_no=MeasureErrorNo.NO_ERROR, all_cost=73.79745292663574, timestamp=1690343280.3640018)	[('tile_x', 10), ('tile_xT', 40)],None,165
-autotvm - DEBUG - No: 24	GFLOPS: 1.80/7.96	result: MeasureResult(costs=(71.146521292,), error_no=MeasureErrorNo.NO_ERROR, all_cost=144.07894563674927, timestamp=1690343424.0715537)	[('tile_x', 1), ('tile_xT', 13)],None,100
-autotvm - DEBUG - No: 25	GFLOPS: 3.88/7.96	result: MeasureResult(costs=(32.959408311,), error_no=MeasureErrorNo.NO_ERROR, all_cost=64.92943954467773, timestamp=1690343488.7996256)	[('tile_x', 5), ('tile_xT', 200)],None,263
-autotvm - DEBUG - No: 26	GFLOPS: 2.68/7.96	result: MeasureResult(costs=(47.739296301,), error_no=MeasureErrorNo.NO_ERROR, all_cost=96.84942317008972, timestamp=1690343585.6752844)	[('tile_x', 2), ('tile_xT', 52)],None,201
-autotvm - DEBUG - No: 27	GFLOPS: 5.51/7.96	result: MeasureResult(costs=(23.224403236999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=48.476808309555054, timestamp=1690343633.7721334)	[('tile_x', 125), ('tile_xT', 40)],None,173
-autotvm - DEBUG - No: 28	GFLOPS: 7.99/7.99	result: MeasureResult(costs=(16.015233377,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.5815794467926, timestamp=1690343666.3887515)	[('tile_x', 100), ('tile_xT', 20)],None,132
-autotvm - DEBUG - No: 29	GFLOPS: 6.35/7.99	result: MeasureResult(costs=(20.160469338,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.53702664375305, timestamp=1690343707.6893225)	[('tile_x', 400), ('tile_xT', 260)],None,296
-autotvm - DEBUG - No: 30	GFLOPS: 7.84/7.99	result: MeasureResult(costs=(16.325075826,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.88959765434265, timestamp=1690343741.56827)	[('tile_x', 250), ('tile_xT', 100)],None,235
-autotvm - DEBUG - No: 31	GFLOPS: 6.13/7.99	result: MeasureResult(costs=(20.882350373,), error_no=MeasureErrorNo.NO_ERROR, all_cost=43.26744818687439, timestamp=1690343784.46453)	[('tile_x', 80), ('tile_xT', 104)],None,251
-autotvm - DEBUG - No: 32	GFLOPS: 8.95/8.95	result: MeasureResult(costs=(14.304607828,), error_no=MeasureErrorNo.NO_ERROR, all_cost=30.237606525421143, timestamp=1690343814.4736958)	[('tile_x', 40), ('tile_xT', 200)],None,269
-autotvm - DEBUG - No: 33	GFLOPS: 1.94/8.95	result: MeasureResult(costs=(65.814963357,), error_no=MeasureErrorNo.NO_ERROR, all_cost=134.52695727348328, timestamp=1690343948.6104481)	[('tile_x', 8), ('tile_xT', 1300)],None,364
-autotvm - DEBUG - No: 34	GFLOPS: 7.33/8.95	result: MeasureResult(costs=(17.451052607,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.47546863555908, timestamp=1690343984.7059355)	[('tile_x', 400), ('tile_xT', 25)],None,156
-autotvm - DEBUG - No: 35	GFLOPS: 4.00/8.95	result: MeasureResult(costs=(32.002261272,), error_no=MeasureErrorNo.NO_ERROR, all_cost=71.85475063323975, timestamp=1690344056.1708386)	[('tile_x', 25), ('tile_xT', 10)],None,88
-autotvm - DEBUG - No: 36	GFLOPS: 3.47/8.95	result: MeasureResult(costs=(36.935598264,), error_no=MeasureErrorNo.NO_ERROR, all_cost=75.6504738330841, timestamp=1690344131.5005686)	[('tile_x', 4), ('tile_xT', 20)],None,122
-autotvm - DEBUG - No: 37	GFLOPS: 4.40/8.95	result: MeasureResult(costs=(29.081037517000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=64.61495876312256, timestamp=1690344196.0656257)	[('tile_x', 20), ('tile_xT', 25)],None,147
-autotvm - DEBUG - No: 38	GFLOPS: 3.39/8.95	result: MeasureResult(costs=(37.797862245999994,), error_no=MeasureErrorNo.NO_ERROR, all_cost=79.73477125167847, timestamp=1690344275.552779)	[('tile_x', 16), ('tile_xT', 10)],None,86
-autotvm - DEBUG - No: 39	GFLOPS: 3.59/8.95	result: MeasureResult(costs=(35.651748899,), error_no=MeasureErrorNo.NO_ERROR, all_cost=74.54004383087158, timestamp=1690344350.0127275)	[('tile_x', 16), ('tile_xT', 20)],None,126
-autotvm - DEBUG - No: 40	GFLOPS: 6.57/8.95	result: MeasureResult(costs=(19.475281221,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.72663474082947, timestamp=1690344391.3760574)	[('tile_x', 400), ('tile_xT', 10)],None,96
-autotvm - DEBUG - No: 41	GFLOPS: 8.84/8.95	result: MeasureResult(costs=(14.484038451,), error_no=MeasureErrorNo.NO_ERROR, all_cost=30.43628692626953, timestamp=1690344421.8285873)	[('tile_x', 40), ('tile_xT', 100)],None,229
-autotvm - DEBUG - No: 42	GFLOPS: 2.32/8.95	result: MeasureResult(costs=(55.175661495,), error_no=MeasureErrorNo.NO_ERROR, all_cost=113.49015021324158, timestamp=1690344534.937891)	[('tile_x', 125), ('tile_xT', 1)],None,13
-autotvm - DEBUG - No: 43	GFLOPS: 3.79/8.95	result: MeasureResult(costs=(33.798808808000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=69.5379250049591, timestamp=1690344604.0712464)	[('tile_x', 80), ('tile_xT', 1300)],None,371
-autotvm - DEBUG - No: 44	GFLOPS: 2.42/8.95	result: MeasureResult(costs=(52.799895716,), error_no=MeasureErrorNo.NO_ERROR, all_cost=112.99461770057678, timestamp=1690344716.7024927)	[('tile_x', 8), ('tile_xT', 5)],None,64
-autotvm - DEBUG - No: 45	GFLOPS: 3.81/8.95	result: MeasureResult(costs=(33.6224217,), error_no=MeasureErrorNo.NO_ERROR, all_cost=69.04567670822144, timestamp=1690344785.3472703)	[('tile_x', 10), ('tile_xT', 52)],None,205
-autotvm - DEBUG - No: 46	GFLOPS: 3.16/8.95	result: MeasureResult(costs=(40.507059645,), error_no=MeasureErrorNo.NO_ERROR, all_cost=85.50498938560486, timestamp=1690344870.4505773)	[('tile_x', 16), ('tile_xT', 4)],None,46
-autotvm - DEBUG - No: 47	GFLOPS: 4.15/8.95	result: MeasureResult(costs=(30.807925536,), error_no=MeasureErrorNo.NO_ERROR, all_cost=63.40475606918335, timestamp=1690344933.547263)	[('tile_x', 50), ('tile_xT', 650)],None,350
-autotvm - DEBUG - No: 48	GFLOPS: 6.75/8.95	result: MeasureResult(costs=(18.952740151,), error_no=MeasureErrorNo.NO_ERROR, all_cost=39.36241841316223, timestamp=1690344972.5342083)	[('tile_x', 500), ('tile_xT', 520)],None,337
-autotvm - DEBUG - No: 49	GFLOPS: 8.44/8.95	result: MeasureResult(costs=(15.167321100999999,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.69262337684631, timestamp=1690345004.8291197)	[('tile_x', 50), ('tile_xT', 20)],None,130
-autotvm - DEBUG - No: 50	GFLOPS: 3.25/8.95	result: MeasureResult(costs=(39.41885846,), error_no=MeasureErrorNo.NO_ERROR, all_cost=80.29472589492798, timestamp=1690345085.0957398)	[('tile_x', 16), ('tile_xT', 325)],None,306
-autotvm - DEBUG - No: 51	GFLOPS: 2.32/8.95	result: MeasureResult(costs=(55.152449684,), error_no=MeasureErrorNo.NO_ERROR, all_cost=112.4662537574768, timestamp=1690345197.2251418)	[('tile_x', 4), ('tile_xT', 520)],None,322
-autotvm - DEBUG - No: 52	GFLOPS: 5.06/8.95	result: MeasureResult(costs=(25.275375432,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.10414004325867, timestamp=1690345248.942913)	[('tile_x', 8), ('tile_xT', 100)],None,224
-autotvm - DEBUG - No: 53	GFLOPS: 4.21/8.95	result: MeasureResult(costs=(30.391773578,), error_no=MeasureErrorNo.NO_ERROR, all_cost=61.98627281188965, timestamp=1690345310.5540104)	[('tile_x', 5), ('tile_xT', 100)],None,223
-autotvm - DEBUG - No: 54	GFLOPS: 2.38/8.95	result: MeasureResult(costs=(53.832743584999996,), error_no=MeasureErrorNo.NO_ERROR, all_cost=109.26236200332642, timestamp=1690345419.582002)	[('tile_x', 1), ('tile_xT', 20)],None,120
-autotvm - DEBUG - No: 55	GFLOPS: 3.42/8.95	result: MeasureResult(costs=(37.475883138,), error_no=MeasureErrorNo.NO_ERROR, all_cost=77.69077777862549, timestamp=1690345496.9154458)	[('tile_x', 40), ('tile_xT', 1300)],None,369
-autotvm - DEBUG - No: 56	GFLOPS: 6.60/8.95	result: MeasureResult(costs=(19.392880137,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.91136026382446, timestamp=1690345537.4669204)	[('tile_x', 50), ('tile_xT', 104)],None,250
-root - INFO - Elpased time = 3991.8115611076355
+autotvm - DEBUG - No: 1	GFLOPS: 3.57/3.57	result: MeasureResult(costs=(35.817703778,), error_no=MeasureErrorNo.NO_ERROR, all_cost=72.61951279640198, timestamp=1690517328.9620955)	[('tile_x', 2000), ('tile_xT', 1)],None,19
+autotvm - DEBUG - No: 2	GFLOPS: 7.13/7.13	result: MeasureResult(costs=(17.952486344,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.797022342681885, timestamp=1690517365.7629783)	[('tile_x', 125), ('tile_xT', 100)],None,233
+autotvm - DEBUG - No: 3	GFLOPS: 3.64/7.13	result: MeasureResult(costs=(35.164259781,), error_no=MeasureErrorNo.NO_ERROR, all_cost=71.38379502296448, timestamp=1690517437.1657746)	[('tile_x', 8), ('tile_xT', 325)],None,304
+autotvm - DEBUG - No: 4	GFLOPS: 1.99/7.13	result: MeasureResult(costs=(64.328640446,), error_no=MeasureErrorNo.NO_ERROR, all_cost=129.73656058311462, timestamp=1690517566.9016852)	[('tile_x', 1), ('tile_xT', 50)],None,180
+autotvm - DEBUG - No: 5	GFLOPS: 4.09/7.13	result: MeasureResult(costs=(31.28412385,), error_no=MeasureErrorNo.NO_ERROR, all_cost=64.08481478691101, timestamp=1690517630.9551034)	[('tile_x', 125), ('tile_xT', 650)],None,353
+autotvm - DEBUG - No: 6	GFLOPS: 4.28/7.13	result: MeasureResult(costs=(29.934169018000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.576536417007446, timestamp=1690517691.4424908)	[('tile_x', 8), ('tile_xT', 25)],None,144
+autotvm - DEBUG - No: 7	GFLOPS: 3.93/7.13	result: MeasureResult(costs=(32.568012571,), error_no=MeasureErrorNo.NO_ERROR, all_cost=66.26202702522278, timestamp=1690517757.669094)	[('tile_x', 10), ('tile_xT', 10)],None,85
+autotvm - DEBUG - No: 8	GFLOPS: 4.93/7.13	result: MeasureResult(costs=(25.975234431,), error_no=MeasureErrorNo.NO_ERROR, all_cost=53.22667717933655, timestamp=1690517810.7474594)	[('tile_x', 25), ('tile_xT', 100)],None,228
+autotvm - DEBUG - No: 9	GFLOPS: 8.08/8.08	result: MeasureResult(costs=(15.843542839,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.91123723983765, timestamp=1690517843.6278124)	[('tile_x', 1000), ('tile_xT', 40)],None,178
+autotvm - DEBUG - No: 10	GFLOPS: 3.30/8.08	result: MeasureResult(costs=(38.782398343000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=78.84289121627808, timestamp=1690517922.3377554)	[('tile_x', 25), ('tile_xT', 325)],None,308
+autotvm - DEBUG - No: 11	GFLOPS: 2.87/8.08	result: MeasureResult(costs=(44.642800299,), error_no=MeasureErrorNo.NO_ERROR, all_cost=86.76905870437622, timestamp=1690518009.0496387)	[('tile_x', 8), ('tile_xT', 13)],None,104
+autotvm - DEBUG - No: 12	GFLOPS: 8.46/8.46	result: MeasureResult(costs=(15.137279675,), error_no=MeasureErrorNo.NO_ERROR, all_cost=31.547001600265503, timestamp=1690518040.5185044)	[('tile_x', 100), ('tile_xT', 20)],None,132
+autotvm - DEBUG - No: 13	GFLOPS: 4.83/8.46	result: MeasureResult(costs=(26.499375258,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.10483002662659, timestamp=1690518094.5142636)	[('tile_x', 250), ('tile_xT', 4)],None,55
+autotvm - DEBUG - No: 14	GFLOPS: 5.51/8.46	result: MeasureResult(costs=(23.230176608999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=47.35119366645813, timestamp=1690518141.8257859)	[('tile_x', 80), ('tile_xT', 520)],None,331
+autotvm - DEBUG - No: 15	GFLOPS: 4.00/8.46	result: MeasureResult(costs=(31.960338556,), error_no=MeasureErrorNo.NO_ERROR, all_cost=64.8652856349945, timestamp=1690518206.6882834)	[('tile_x', 5), ('tile_xT', 50)],None,183
+autotvm - DEBUG - No: 16	GFLOPS: 0.70/8.46	result: MeasureResult(costs=(183.352561476,), error_no=MeasureErrorNo.NO_ERROR, all_cost=367.18723726272583, timestamp=1690518573.8373454)	[('tile_x', 2), ('tile_xT', 1)],None,1
+autotvm - DEBUG - No: 17	GFLOPS: 5.65/8.46	result: MeasureResult(costs=(22.663039678,), error_no=MeasureErrorNo.NO_ERROR, all_cost=46.22925400733948, timestamp=1690518620.049105)	[('tile_x', 80), ('tile_xT', 25)],None,151
+autotvm - DEBUG - No: 18	GFLOPS: 7.10/8.46	result: MeasureResult(costs=(18.033682217000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.967201471328735, timestamp=1690518657.0039942)	[('tile_x', 400), ('tile_xT', 20)],None,136
+autotvm - DEBUG - No: 19	GFLOPS: 4.64/8.46	result: MeasureResult(costs=(27.573589381999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=56.3982789516449, timestamp=1690518713.3835497)	[('tile_x', 20), ('tile_xT', 25)],None,147
+autotvm - DEBUG - No: 20	GFLOPS: 6.92/8.46	result: MeasureResult(costs=(18.499879206000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=38.255351543426514, timestamp=1690518751.6650212)	[('tile_x', 40), ('tile_xT', 52)],None,209
+autotvm - DEBUG - No: 21	GFLOPS: 2.69/8.46	result: MeasureResult(costs=(47.57891403,), error_no=MeasureErrorNo.NO_ERROR, all_cost=96.40520787239075, timestamp=1690518847.9731057)	[('tile_x', 2), ('tile_xT', 104)],None,241
+autotvm - DEBUG - No: 22	GFLOPS: 4.67/8.46	result: MeasureResult(costs=(27.434400686,), error_no=MeasureErrorNo.NO_ERROR, all_cost=55.92779302597046, timestamp=1690518903.883783)	[('tile_x', 125), ('tile_xT', 5)],None,73
+autotvm - DEBUG - No: 23	GFLOPS: 7.82/8.46	result: MeasureResult(costs=(16.361125232,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.68009877204895, timestamp=1690518937.4870713)	[('tile_x', 2000), ('tile_xT', 520)],None,339
+autotvm - DEBUG - No: 24	GFLOPS: 4.12/8.46	result: MeasureResult(costs=(31.093582452,), error_no=MeasureErrorNo.NO_ERROR, all_cost=63.67768335342407, timestamp=1690519001.046723)	[('tile_x', 16), ('tile_xT', 50)],None,186
+autotvm - DEBUG - No: 25	GFLOPS: 5.54/8.46	result: MeasureResult(costs=(23.100804468,), error_no=MeasureErrorNo.NO_ERROR, all_cost=47.09920310974121, timestamp=1690519048.1186361)	[('tile_x', 125), ('tile_xT', 10)],None,93
+autotvm - DEBUG - No: 26	GFLOPS: 2.33/8.46	result: MeasureResult(costs=(54.852863738,), error_no=MeasureErrorNo.NO_ERROR, all_cost=110.9181878566742, timestamp=1690519159.0189562)	[('tile_x', 400), ('tile_xT', 1)],None,16
+autotvm - DEBUG - No: 27	GFLOPS: 1.62/8.46	result: MeasureResult(costs=(79.251397715,), error_no=MeasureErrorNo.NO_ERROR, all_cost=158.52419590950012, timestamp=1690519317.5493054)	[('tile_x', 2), ('tile_xT', 520)],None,321
+autotvm - DEBUG - No: 28	GFLOPS: 3.44/8.46	result: MeasureResult(costs=(37.241271294,), error_no=MeasureErrorNo.NO_ERROR, all_cost=75.47445845603943, timestamp=1690519393.0266757)	[('tile_x', 4), ('tile_xT', 52)],None,202
+autotvm - DEBUG - No: 29	GFLOPS: 7.21/8.46	result: MeasureResult(costs=(17.751238278000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.42581105232239, timestamp=1690519429.4302375)	[('tile_x', 125), ('tile_xT', 200)],None,273
+autotvm - DEBUG - No: 30	GFLOPS: 3.20/8.46	result: MeasureResult(costs=(39.975624948,), error_no=MeasureErrorNo.NO_ERROR, all_cost=81.11277341842651, timestamp=1690519510.4897616)	[('tile_x', 40), ('tile_xT', 2600)],None,389
+autotvm - DEBUG - No: 31	GFLOPS: 3.86/8.46	result: MeasureResult(costs=(33.131056874,), error_no=MeasureErrorNo.NO_ERROR, all_cost=67.48301768302917, timestamp=1690519577.8515317)	[('tile_x', 10), ('tile_xT', 50)],None,185
+autotvm - DEBUG - No: 32	GFLOPS: 8.18/8.46	result: MeasureResult(costs=(15.646348106,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.5242805480957, timestamp=1690519610.4196408)	[('tile_x', 100), ('tile_xT', 100)],None,232
+autotvm - DEBUG - No: 33	GFLOPS: 7.72/8.46	result: MeasureResult(costs=(16.577094918,), error_no=MeasureErrorNo.NO_ERROR, all_cost=34.42477607727051, timestamp=1690519644.794813)	[('tile_x', 400), ('tile_xT', 40)],None,176
+autotvm - DEBUG - No: 34	GFLOPS: 1.22/8.46	result: MeasureResult(costs=(104.552868238,), error_no=MeasureErrorNo.NO_ERROR, all_cost=210.5930519104004, timestamp=1690519855.38181)	[('tile_x', 4), ('tile_xT', 1300)],None,362
+autotvm - DEBUG - No: 35	GFLOPS: 7.11/8.46	result: MeasureResult(costs=(18.010919225000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=37.35286831855774, timestamp=1690519892.7631748)	[('tile_x', 500), ('tile_xT', 104)],None,257
+autotvm - DEBUG - No: 36	GFLOPS: 3.54/8.46	result: MeasureResult(costs=(36.183399953,), error_no=MeasureErrorNo.NO_ERROR, all_cost=73.53295540809631, timestamp=1690519966.200519)	[('tile_x', 16), ('tile_xT', 52)],None,206
+autotvm - DEBUG - No: 37	GFLOPS: 3.77/8.46	result: MeasureResult(costs=(33.975829004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=68.87838983535767, timestamp=1690520035.102661)	[('tile_x', 10), ('tile_xT', 52)],None,205
+autotvm - DEBUG - No: 38	GFLOPS: 2.47/8.46	result: MeasureResult(costs=(51.837651161000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=102.36465263366699, timestamp=1690520137.4451253)	[('tile_x', 10), ('tile_xT', 4)],None,45
+autotvm - DEBUG - No: 39	GFLOPS: 9.42/9.42	result: MeasureResult(costs=(13.59005198,), error_no=MeasureErrorNo.NO_ERROR, all_cost=28.50936460494995, timestamp=1690520165.8952758)	[('tile_x', 40), ('tile_xT', 40)],None,169
+autotvm - DEBUG - No: 40	GFLOPS: 4.79/9.42	result: MeasureResult(costs=(26.703465618,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.69089460372925, timestamp=1690520220.5566068)	[('tile_x', 20), ('tile_xT', 20)],None,127
+autotvm - DEBUG - No: 41	GFLOPS: 1.76/9.42	result: MeasureResult(costs=(72.81222915,), error_no=MeasureErrorNo.NO_ERROR, all_cost=147.41108536720276, timestamp=1690520367.9801214)	[('tile_x', 1), ('tile_xT', 52)],None,200
+autotvm - DEBUG - No: 42	GFLOPS: 3.87/9.42	result: MeasureResult(costs=(33.065735795,), error_no=MeasureErrorNo.NO_ERROR, all_cost=67.17725324630737, timestamp=1690520435.1652358)	[('tile_x', 125), ('tile_xT', 1300)],None,373
+autotvm - DEBUG - No: 43	GFLOPS: 4.86/9.42	result: MeasureResult(costs=(26.314805753,), error_no=MeasureErrorNo.NO_ERROR, all_cost=53.75858974456787, timestamp=1690520488.6656945)	[('tile_x', 50), ('tile_xT', 10)],None,90
+autotvm - DEBUG - No: 44	GFLOPS: 0.83/9.42	result: MeasureResult(costs=(155.030732571,), error_no=MeasureErrorNo.NO_ERROR, all_cost=312.48841857910156, timestamp=1690520801.0935497)	[('tile_x', 1), ('tile_xT', 650)],None,340
+autotvm - DEBUG - No: 45	GFLOPS: 6.90/9.42	result: MeasureResult(costs=(18.555575747,), error_no=MeasureErrorNo.NO_ERROR, all_cost=38.370163440704346, timestamp=1690520839.432561)	[('tile_x', 125), ('tile_xT', 25)],None,153
+autotvm - DEBUG - No: 46	GFLOPS: 3.06/9.42	result: MeasureResult(costs=(41.890770065999995,), error_no=MeasureErrorNo.NO_ERROR, all_cost=84.57150149345398, timestamp=1690520924.0363429)	[('tile_x', 80), ('tile_xT', 2)],None,31
+autotvm - DEBUG - No: 47	GFLOPS: 2.83/9.42	result: MeasureResult(costs=(45.237066673,), error_no=MeasureErrorNo.NO_ERROR, all_cost=91.63683295249939, timestamp=1690521015.5584965)	[('tile_x', 25), ('tile_xT', 650)],None,348
+autotvm - DEBUG - No: 48	GFLOPS: 6.12/9.42	result: MeasureResult(costs=(20.928043589,), error_no=MeasureErrorNo.NO_ERROR, all_cost=43.32044219970703, timestamp=1690521058.8274274)	[('tile_x', 100), ('tile_xT', 104)],None,252
+autotvm - DEBUG - No: 49	GFLOPS: 2.53/9.42	result: MeasureResult(costs=(50.602754755,), error_no=MeasureErrorNo.NO_ERROR, all_cost=101.99587845802307, timestamp=1690521160.803555)	[('tile_x', 8), ('tile_xT', 650)],None,344
+autotvm - DEBUG - No: 50	GFLOPS: 8.81/9.42	result: MeasureResult(costs=(14.52430221,), error_no=MeasureErrorNo.NO_ERROR, all_cost=30.448861837387085, timestamp=1690521191.1393962)	[('tile_x', 50), ('tile_xT', 50)],None,190
+autotvm - DEBUG - No: 51	GFLOPS: 6.56/9.42	result: MeasureResult(costs=(19.511849386,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.34316563606262, timestamp=1690521231.3871083)	[('tile_x', 400), ('tile_xT', 10)],None,96
+autotvm - DEBUG - No: 52	GFLOPS: 7.47/9.42	result: MeasureResult(costs=(17.133521216000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.58007097244263, timestamp=1690521266.8941722)	[('tile_x', 1000), ('tile_xT', 13)],None,118
+autotvm - DEBUG - No: 53	GFLOPS: 8.34/9.42	result: MeasureResult(costs=(15.34128595,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.356327295303345, timestamp=1690521299.1735704)	[('tile_x', 50), ('tile_xT', 20)],None,130
+autotvm - DEBUG - No: 54	GFLOPS: 2.70/9.42	result: MeasureResult(costs=(47.364952854,), error_no=MeasureErrorNo.NO_ERROR, all_cost=95.33132910728455, timestamp=1690521394.538194)	[('tile_x', 5), ('tile_xT', 325)],None,303
+autotvm - DEBUG - No: 55	GFLOPS: 2.68/9.42	result: MeasureResult(costs=(47.821675346000006,), error_no=MeasureErrorNo.NO_ERROR, all_cost=96.26371264457703, timestamp=1690521490.7247865)	[('tile_x', 20), ('tile_xT', 650)],None,347
+autotvm - DEBUG - No: 56	GFLOPS: 7.05/9.42	result: MeasureResult(costs=(18.162493890999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=37.26875877380371, timestamp=1690521527.9679587)	[('tile_x', 125), ('tile_xT', 52)],None,213
+root - INFO - Elpased time = 4276.441319227219
 autotvm - DEBUG - Finish loading 56 records
