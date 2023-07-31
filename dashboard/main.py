@@ -64,7 +64,7 @@ try:
     # for file in fileNameTVM:
         with open(file_path, 'r') as handle:
             data[file[3:-5]] = [json.loads(line) for line in handle]
-        st.write(data)
+            
     file_path_ytopt = Path(paths[option]["ytopt"]+configPath[config]+"results.csv")
     with open(file_path_ytopt, mode='r') as file:
             reader = csv.reader(file)
@@ -140,11 +140,11 @@ def find_min_excluding_zero(list):
 # st.write(GridSearchTunerResults)
 
 
-plt.plot(GATunerResults["elapsed"], np.log(GATunerResults["runtime"]),marker='o',alpha=0.9)
-plt.plot(RandomTunerResults["elapsed"], np.log(RandomTunerResults["runtime"]),marker='o',alpha=0.7)
-plt.plot(GATunerResults["elapsed"], np.log(GATunerResults["runtime"]),marker='o',alpha=0.7)
-plt.plot(XGBTunerResults["elapsed"], np.log(XGBTunerResults["runtime"]),marker='o',alpha=0.7)
-plt.plot(YtoptResults["elapsed"], np.log(YtoptResults["runtime"]),marker='o',alpha=0.7)
+plt.plot(GATunerResults["elapsed"], GATunerResults["runtime"],marker='o',alpha=0.9,)
+plt.plot(RandomTunerResults["elapsed"], RandomTunerResults["runtime"],marker='o',alpha=0.7)
+plt.plot(GridSearchTunerResults["elapsed"], GridSearchTunerResults["runtime"],marker='o',alpha=0.7)
+plt.plot(XGBTunerResults["elapsed"], XGBTunerResults["runtime"],marker='o',alpha=0.7)
+plt.plot(YtoptResults["elapsed"], YtoptResults["runtime"],marker='o',alpha=0.7)
 
 
 
@@ -156,8 +156,17 @@ plt.title("Performance of {} (AutoTVM vs YTOPT)".format(option))
 
 st.pyplot(plt)
 
+# df = pd.DataFrame(
+#    [find_min_excluding_zero(GATunerResults["runtime"]),find_min_excluding_zero(RandomTunerResults["runtime"]),find_min_excluding_zero(GRTstartTime["runtime"]),find_min_excluding_zero(XGBTunerResults["runtime"]),find_min_excluding_zero(YtoptResults["runtime"])],
+#    columns=['GA','Random','GridSearch','XGB','YTOPT'])
+
+
 st.header("Minimum Runtime")
+
 fig, ax = plt.subplots()
-ax.bar(["GA","YTOPT","XGB","GridSearch","Random"], [find_min_excluding_zero(GATunerResults["runtime"]),find_min_excluding_zero(YtoptResults["runtime"]),find_min_excluding_zero(XGBTunerResults["runtime"]),find_min_excluding_zero(GridSearchTunerResults["runtime"]),find_min_excluding_zero(RandomTunerResults["runtime"])],color=['#d47b85', '#c8fac9', '#7cb2e6', '#dee08b', '#6fe1f2'],)
+ax.set_title("Runtime of tuners")
+ax.bar(['GA','Random','GridSearch','XGB','YTOPT'], [find_min_excluding_zero(GATunerResults["runtime"]),find_min_excluding_zero(RandomTunerResults["runtime"]),find_min_excluding_zero(GridSearchTunerResults["runtime"]),find_min_excluding_zero(XGBTunerResults["runtime"]),find_min_excluding_zero(YtoptResults["runtime"])],color=['#d47b85', '#c8fac9', '#7cb2e6', '#dee08b', '#6fe1f2'])
 ax.set_ylabel("Runtime(secs)")
 st.pyplot(fig)
+
+
