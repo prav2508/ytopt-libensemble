@@ -13,8 +13,8 @@
 source /home/pparamasivam/anaconda3/bin/activate
 conda activate tvm
 
-python /home/pparamasivam/ytune/ytopt-libensemble/tvm3mm/tvm3MM_Baseline.py --size=L
-python /home/pparamasivam/ytune/ytopt-libensemble/tvm3mm/tvm3MM_GATuner.py --size=L
-python /home/pparamasivam/ytune/ytopt-libensemble/tvm3mm/tvm3MM_GridSearchTuner.py --size=L
-python /home/pparamasivam/ytune/ytopt-libensemble/tvm3mm/tvm3MM_RandTuner.py --size=L
-python /home/pparamasivam/ytune/ytopt-libensemble/tvm3mm/tvm3MM_XGBTuner.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/3mm_TVM/tvm3MM_Baseline.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/3mm_TVM/tvm3MM_GATuner.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/3mm_TVM/tvm3MM_GridSearchTuner.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/3mm_TVM/tvm3MM_RandTuner.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/3mm_TVM/tvm3MM_XGBTuner.py --size=L
