@@ -18,8 +18,8 @@ def record_execution_time(task, config, duration):
     logging.info(f"Execution time: {execution_time} seconds")
 
 
-@autotvm.template("test/tvmCholesky_v1") 
-def Cholesky_v1(N, size, dtype):
+@autotvm.template("test/tvmLu_v1") 
+def lu_V1(N, size, dtype):
 
     A = te.placeholder((N, N), name="A", dtype=dtype)
     At = te.placeholder((N, N), name="At", dtype=dtype)
@@ -42,11 +42,12 @@ def Cholesky_v1(N, size, dtype):
     if size != 'L':
 
         cfg.define_knob("tile_x", [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
-        cfg.define_knob("tile_xT", [1, 2, 4, 5, 10, 13, 20, 25, 40, 50, 52, 100, 104, 200, 260, 325, 520, 650, 1300, 2600])
+        cfg.define_knob("tile_xT", [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
     else:    
 
-        cfg.define_knob("tile_x", [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000])
-        cfg.define_knob("tile_xT", [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 16, 20, 24, 25, 30, 40, 48, 50, 60, 75, 80, 100, 120, 150, 200, 240, 300, 400, 600, 1200]) 
+        cfg.define_knob("tile_x", [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 125, 160, 200, 250, 400, 500, 800, 1000, 2000, 4000])
+        cfg.define_knob("tile_xT", [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 125, 160, 200, 250, 400, 500, 800, 1000, 2000, 4000]) 
+
 
     # 4. schedule according to config
     yo, yi = s[C].split(y, cfg["tile_xT"].val)
@@ -63,20 +64,20 @@ def main(datasize):
     else:
         N = 4000
 
-    task = autotvm.task.create("test/tvmCholesky_v1", args=(N, datasize ,"float64"), target="llvm")
+    task = autotvm.task.create("test/tvmLu_v1", args=(N, datasize ,"float64"), target="llvm")
 
 
     # Create a measurement callback with the custom function
 
     measure_option = autotvm.measure_option(builder="local", 
-                                            runner=autotvm.LocalRunner(number=1, repeat=1, timeout=500), # timeout=20
+                                            runner=autotvm.LocalRunner(number=1, repeat=1, timeout=1000), # timeout=20
                                             )
 
     tuner = autotvm.tuner.XGBTuner(task)
     path = resultsPath + "tvmXGBTuner.json"
     start = time.time()
     tuner.tune(
-    n_trial=56,
+    n_trial=100,
     measure_option=measure_option,
     callbacks=[autotvm.callback.log_to_file(path)]
     )
@@ -86,7 +87,7 @@ def main(datasize):
 
     with autotvm.apply_history_best(path):
         with tvm.target.Target("llvm"):
-            s, arg_bufs = Cholesky_v1(N, datasize,"float64") #float64 
+            s, arg_bufs = lu_V1(N, datasize,"float64") #float64 
             func = tvm.build(s, arg_bufs)
             
 

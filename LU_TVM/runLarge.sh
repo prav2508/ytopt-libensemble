@@ -13,8 +13,8 @@
 source /home/pparamasivam/anaconda3/bin/activate
 conda activate tvm
 
-python /home/pparamasivam/ytune/ytopt-libensemble/cholesky_TVM/Cholesky_Baseline.py --size=L
-python /home/pparamasivam/ytune/ytopt-libensemble/cholesky_TVM/Cholesky_GATuner.py --size=L
-python /home/pparamasivam/ytune/ytopt-libensemble/cholesky_TVM/Cholesky_GridSearch.py --size=L
-python /home/pparamasivam/ytune/ytopt-libensemble/cholesky_TVM/Cholesky_RandTuner.py --size=L
-python /home/pparamasivam/ytune/ytopt-libensemble/cholesky_TVM/Cholesky_XGBTuner.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/LU_TVM/LU_Baseline.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/LU_TVM/LU_GATuner.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/LU_TVM/LU_GridSearch.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/LU_TVM/LU_RandTuner.py --size=L
+python /home/pparamasivam/ytune/ytopt-libensemble/LU_TVM/LU_XGBTuner.py --size=L
