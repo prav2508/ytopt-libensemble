@@ -38,8 +38,8 @@ def getPositiveDefinite(N):
 
 def main():
     
-    N = 2000    
-    # N = 4000
+    #N = 2000    
+    N = 4000
     s, arg_bufs = cholesky_basic(N, "float64")
     func = tvm.build(s,arg_bufs)
     a_np = np.linalg.cholesky(getPositiveDefinite(N))

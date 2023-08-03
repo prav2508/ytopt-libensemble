@@ -1,1 +1,4 @@
-root - INFO - Random Tuner 3MM - 2023-07-20 09:50:09.700673
+root - INFO - Random Tuner 3MM - 2023-08-02 23:21:02.860414
+autotvm - DEBUG - waiting for device...
+autotvm - DEBUG - device available
+autotvm - INFO - Get devices for measurement successfully!

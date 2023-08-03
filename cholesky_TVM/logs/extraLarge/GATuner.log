@@ -1,358 +1,106 @@
-root - INFO - GA Tuner Matrix Multiplication - 2023-07-27 15:43:58.726926
+root - INFO - GA Tuner Matrix Multiplication - 2023-08-01 18:35:03.547482
 autotvm - DEBUG - waiting for device...
 autotvm - DEBUG - device available
 autotvm - INFO - Get devices for measurement successfully!
-autotvm - DEBUG - No: 1	GFLOPS: 0.75/0.75	result: MeasureResult(costs=(171.17095148700002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=338.0953872203827, timestamp=1690490983.6616027)	[('tile_x', 4), ('tile_xT', 1)],None,2
-autotvm - DEBUG - No: 2	GFLOPS: 2.14/2.14	result: MeasureResult(costs=(59.76018608,), error_no=MeasureErrorNo.NO_ERROR, all_cost=129.37818121910095, timestamp=1690491112.5192385)	[('tile_x', 20), ('tile_xT', 1)],None,7
-autotvm - DEBUG - No: 3	GFLOPS: 2.38/2.38	result: MeasureResult(costs=(53.892119247000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=113.91153073310852, timestamp=1690491225.9742692)	[('tile_x', 250), ('tile_xT', 1)],None,15
-autotvm - DEBUG - No: 4	GFLOPS: 1.23/2.38	result: MeasureResult(costs=(104.35138196,), error_no=MeasureErrorNo.NO_ERROR, all_cost=221.98048901557922, timestamp=1690491447.533594)	[('tile_x', 4), ('tile_xT', 2)],None,22
-autotvm - DEBUG - No: 5	GFLOPS: 3.07/3.07	result: MeasureResult(costs=(41.651283554,), error_no=MeasureErrorNo.NO_ERROR, all_cost=84.40515637397766, timestamp=1690491531.4581)	[('tile_x', 40), ('tile_xT', 2)],None,29
-autotvm - DEBUG - No: 6	GFLOPS: 2.47/3.07	result: MeasureResult(costs=(51.922383051,), error_no=MeasureErrorNo.NO_ERROR, all_cost=107.25071549415588, timestamp=1690491637.9629552)	[('tile_x', 50), ('tile_xT', 2)],None,30
-autotvm - DEBUG - No: 7	GFLOPS: 3.14/3.14	result: MeasureResult(costs=(40.826198825,), error_no=MeasureErrorNo.NO_ERROR, all_cost=86.09475564956665, timestamp=1690491723.3855565)	[('tile_x', 80), ('tile_xT', 2)],None,31
-autotvm - DEBUG - No: 8	GFLOPS: 3.03/3.14	result: MeasureResult(costs=(42.269436891999995,), error_no=MeasureErrorNo.NO_ERROR, all_cost=86.24528789520264, timestamp=1690491809.0905857)	[('tile_x', 100), ('tile_xT', 2)],None,32
-autotvm - DEBUG - No: 9	GFLOPS: 3.41/3.41	result: MeasureResult(costs=(37.547890015,), error_no=MeasureErrorNo.NO_ERROR, all_cost=76.67390513420105, timestamp=1690491885.3734245)	[('tile_x', 400), ('tile_xT', 2)],None,36
-autotvm - DEBUG - No: 10	GFLOPS: 3.52/3.52	result: MeasureResult(costs=(36.388788027000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=74.90496063232422, timestamp=1690491959.8258402)	[('tile_x', 500), ('tile_xT', 2)],None,37
-autotvm - DEBUG - No: 11	GFLOPS: 4.48/4.48	result: MeasureResult(costs=(28.562012308,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.531902551651, timestamp=1690492019.7594905)	[('tile_x', 1000), ('tile_xT', 2)],None,38
-autotvm - DEBUG - No: 12	GFLOPS: 1.79/4.48	result: MeasureResult(costs=(71.59120707800001,), error_no=MeasureErrorNo.NO_ERROR, all_cost=145.81539034843445, timestamp=1690492165.340895)	[('tile_x', 2), ('tile_xT', 4)],None,41
-autotvm - DEBUG - No: 13	GFLOPS: 1.85/4.48	result: MeasureResult(costs=(69.228604907,), error_no=MeasureErrorNo.NO_ERROR, all_cost=144.86222505569458, timestamp=1690492309.9070914)	[('tile_x', 4), ('tile_xT', 4)],None,42
-autotvm - DEBUG - No: 14	GFLOPS: 2.75/4.48	result: MeasureResult(costs=(46.565839676,), error_no=MeasureErrorNo.NO_ERROR, all_cost=113.08490300178528, timestamp=1690492422.6555104)	[('tile_x', 10), ('tile_xT', 5)],None,65
-autotvm - DEBUG - No: 15	GFLOPS: 2.23/4.48	result: MeasureResult(costs=(57.372489722,), error_no=MeasureErrorNo.NO_ERROR, all_cost=114.40147876739502, timestamp=1690492536.7348907)	[('tile_x', 20), ('tile_xT', 5)],None,67
-autotvm - DEBUG - No: 16	GFLOPS: 4.60/4.60	result: MeasureResult(costs=(27.854706325,), error_no=MeasureErrorNo.NO_ERROR, all_cost=61.142483711242676, timestamp=1690492597.4705498)	[('tile_x', 80), ('tile_xT', 5)],None,71
-autotvm - DEBUG - No: 17	GFLOPS: 5.39/5.39	result: MeasureResult(costs=(23.74759788,), error_no=MeasureErrorNo.NO_ERROR, all_cost=49.76581597328186, timestamp=1690492646.5485923)	[('tile_x', 250), ('tile_xT', 5)],None,75
-autotvm - DEBUG - No: 18	GFLOPS: 5.51/5.51	result: MeasureResult(costs=(23.216349491000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=51.178526639938354, timestamp=1690492697.2007763)	[('tile_x', 500), ('tile_xT', 5)],None,77
-autotvm - DEBUG - No: 19	GFLOPS: 4.36/5.51	result: MeasureResult(costs=(29.344334900000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.175864458084106, timestamp=1690492757.3856406)	[('tile_x', 16), ('tile_xT', 10)],None,86
-autotvm - DEBUG - No: 20	GFLOPS: 4.29/5.51	result: MeasureResult(costs=(29.835838575,), error_no=MeasureErrorNo.NO_ERROR, all_cost=61.32153296470642, timestamp=1690492818.3251445)	[('tile_x', 20), ('tile_xT', 10)],None,87
-autotvm - DEBUG - No: 21	GFLOPS: 7.34/7.34	result: MeasureResult(costs=(17.443885783000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.583914279937744, timestamp=1690492853.3363678)	[('tile_x', 100), ('tile_xT', 10)],None,92
-autotvm - DEBUG - No: 22	GFLOPS: 5.49/7.34	result: MeasureResult(costs=(23.30193234,), error_no=MeasureErrorNo.NO_ERROR, all_cost=47.44203233718872, timestamp=1690492900.6471848)	[('tile_x', 125), ('tile_xT', 10)],None,93
-autotvm - DEBUG - No: 23	GFLOPS: 6.54/7.34	result: MeasureResult(costs=(19.564810749,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.87638878822327, timestamp=1690492940.990477)	[('tile_x', 400), ('tile_xT', 10)],None,96
-autotvm - DEBUG - No: 24	GFLOPS: 7.46/7.46	result: MeasureResult(costs=(17.154087861,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.97819924354553, timestamp=1690492976.531237)	[('tile_x', 2000), ('tile_xT', 10)],None,99
-autotvm - DEBUG - No: 25	GFLOPS: 3.11/7.46	result: MeasureResult(costs=(41.203258006999995,), error_no=MeasureErrorNo.NO_ERROR, all_cost=83.90938019752502, timestamp=1690493059.9263513)	[('tile_x', 8), ('tile_xT', 13)],None,104
-autotvm - DEBUG - No: 26	GFLOPS: 3.50/7.46	result: MeasureResult(costs=(36.573058626,), error_no=MeasureErrorNo.NO_ERROR, all_cost=75.05834364891052, timestamp=1690493134.1739984)	[('tile_x', 10), ('tile_xT', 13)],None,105
-autotvm - DEBUG - No: 27	GFLOPS: 5.01/7.46	result: MeasureResult(costs=(25.542667824,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.21377968788147, timestamp=1690493186.1319034)	[('tile_x', 40), ('tile_xT', 13)],None,109
-autotvm - DEBUG - No: 28	GFLOPS: 4.88/7.46	result: MeasureResult(costs=(26.236468559000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.44884657859802, timestamp=1690493239.5509052)	[('tile_x', 50), ('tile_xT', 13)],None,110
-autotvm - DEBUG - No: 29	GFLOPS: 6.88/7.46	result: MeasureResult(costs=(18.593705893,), error_no=MeasureErrorNo.NO_ERROR, all_cost=38.08817267417908, timestamp=1690493277.6417758)	[('tile_x', 80), ('tile_xT', 13)],None,111
-autotvm - DEBUG - No: 30	GFLOPS: 6.90/7.46	result: MeasureResult(costs=(18.552705587000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=38.48783326148987, timestamp=1690493315.5688682)	[('tile_x', 100), ('tile_xT', 13)],None,112
-autotvm - DEBUG - No: 31	GFLOPS: 5.90/7.46	result: MeasureResult(costs=(21.693891573000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=45.200799226760864, timestamp=1690493359.8587844)	[('tile_x', 125), ('tile_xT', 13)],None,113
-autotvm - DEBUG - No: 32	GFLOPS: 6.75/7.46	result: MeasureResult(costs=(18.962990908,), error_no=MeasureErrorNo.NO_ERROR, all_cost=39.04257392883301, timestamp=1690493398.885508)	[('tile_x', 400), ('tile_xT', 13)],None,116
-autotvm - DEBUG - No: 33	GFLOPS: 6.97/7.46	result: MeasureResult(costs=(18.362322859,), error_no=MeasureErrorNo.NO_ERROR, all_cost=38.08248853683472, timestamp=1690493436.8070023)	[('tile_x', 500), ('tile_xT', 13)],None,117
-autotvm - DEBUG - No: 34	GFLOPS: 7.69/7.69	result: MeasureResult(costs=(16.644902106,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.27955508232117, timestamp=1690493471.3601005)	[('tile_x', 2000), ('tile_xT', 13)],None,119
-autotvm - DEBUG - No: 35	GFLOPS: 2.51/7.69	result: MeasureResult(costs=(50.947629286,), error_no=MeasureErrorNo.NO_ERROR, all_cost=103.41213941574097, timestamp=1690493574.8100016)	[('tile_x', 2), ('tile_xT', 20)],None,121
-autotvm - DEBUG - No: 36	GFLOPS: 3.44/7.69	result: MeasureResult(costs=(37.17122503,), error_no=MeasureErrorNo.NO_ERROR, all_cost=75.46302485466003, timestamp=1690493650.2576587)	[('tile_x', 4), ('tile_xT', 20)],None,122
-autotvm - DEBUG - No: 37	GFLOPS: 3.06/7.69	result: MeasureResult(costs=(41.873774256,), error_no=MeasureErrorNo.NO_ERROR, all_cost=85.02345991134644, timestamp=1690493735.3006418)	[('tile_x', 5), ('tile_xT', 20)],None,123
-autotvm - DEBUG - No: 38	GFLOPS: 7.44/7.69	result: MeasureResult(costs=(17.208446423,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.413933992385864, timestamp=1690493770.5799136)	[('tile_x', 200), ('tile_xT', 20)],None,134
-autotvm - DEBUG - No: 39	GFLOPS: 7.12/7.69	result: MeasureResult(costs=(17.971246193,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.89634609222412, timestamp=1690493807.3944783)	[('tile_x', 400), ('tile_xT', 20)],None,136
-autotvm - DEBUG - No: 40	GFLOPS: 7.65/7.69	result: MeasureResult(costs=(16.721761286,), error_no=MeasureErrorNo.NO_ERROR, all_cost=34.69901132583618, timestamp=1690493841.7250721)	[('tile_x', 1000), ('tile_xT', 20)],None,138
-autotvm - DEBUG - No: 41	GFLOPS: 2.42/7.69	result: MeasureResult(costs=(52.832321930999996,), error_no=MeasureErrorNo.NO_ERROR, all_cost=106.88581728935242, timestamp=1690493948.5969956)	[('tile_x', 1), ('tile_xT', 25)],None,140
-autotvm - DEBUG - No: 42	GFLOPS: 3.22/7.69	result: MeasureResult(costs=(39.757428328,), error_no=MeasureErrorNo.NO_ERROR, all_cost=81.27179479598999, timestamp=1690494029.2286105)	[('tile_x', 5), ('tile_xT', 25)],None,143
-autotvm - DEBUG - No: 43	GFLOPS: 2.75/7.69	result: MeasureResult(costs=(46.466569357,), error_no=MeasureErrorNo.NO_ERROR, all_cost=94.28932023048401, timestamp=1690494123.3708365)	[('tile_x', 10), ('tile_xT', 25)],None,145
-autotvm - DEBUG - No: 44	GFLOPS: 4.87/7.69	result: MeasureResult(costs=(26.287494286,), error_no=MeasureErrorNo.NO_ERROR, all_cost=53.949963092803955, timestamp=1690494177.1584659)	[('tile_x', 25), ('tile_xT', 25)],None,148
-autotvm - DEBUG - No: 45	GFLOPS: 7.58/7.69	result: MeasureResult(costs=(16.897619182,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.22764015197754, timestamp=1690494212.1842597)	[('tile_x', 250), ('tile_xT', 25)],None,155
-autotvm - DEBUG - No: 46	GFLOPS: 7.51/7.69	result: MeasureResult(costs=(17.054030215999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.43781018257141, timestamp=1690494247.5613506)	[('tile_x', 400), ('tile_xT', 25)],None,156
-autotvm - DEBUG - No: 47	GFLOPS: 4.74/7.69	result: MeasureResult(costs=(26.985088151,), error_no=MeasureErrorNo.NO_ERROR, all_cost=55.18050956726074, timestamp=1690494302.5532858)	[('tile_x', 8), ('tile_xT', 40)],None,164
-autotvm - DEBUG - No: 48	GFLOPS: 3.54/7.69	result: MeasureResult(costs=(36.198476193000005,), error_no=MeasureErrorNo.NO_ERROR, all_cost=73.5571870803833, timestamp=1690494375.9976552)	[('tile_x', 10), ('tile_xT', 40)],None,165
-autotvm - DEBUG - No: 49	GFLOPS: 8.11/8.11	result: MeasureResult(costs=(15.775298618999999,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.733590602874756, timestamp=1690494408.651204)	[('tile_x', 1000), ('tile_xT', 40)],None,178
-autotvm - DEBUG - No: 50	GFLOPS: 3.30/8.11	result: MeasureResult(costs=(38.781251619,), error_no=MeasureErrorNo.NO_ERROR, all_cost=78.7036361694336, timestamp=1690494487.1529133)	[('tile_x', 2), ('tile_xT', 50)],None,181
-autotvm - DEBUG - No: 51	GFLOPS: 7.38/8.11	result: MeasureResult(costs=(17.346804292,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.00249433517456, timestamp=1690494522.9644349)	[('tile_x', 400), ('tile_xT', 50)],None,196
-autotvm - DEBUG - No: 52	GFLOPS: 7.58/8.11	result: MeasureResult(costs=(16.895711121,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.096620321273804, timestamp=1690494557.9750662)	[('tile_x', 500), ('tile_xT', 50)],None,197
-autotvm - DEBUG - No: 53	GFLOPS: 7.76/8.11	result: MeasureResult(costs=(16.501383782,), error_no=MeasureErrorNo.NO_ERROR, all_cost=34.82037854194641, timestamp=1690494592.1755302)	[('tile_x', 1000), ('tile_xT', 50)],None,198
-autotvm - DEBUG - No: 54	GFLOPS: 1.76/8.11	result: MeasureResult(costs=(72.63758866900001,), error_no=MeasureErrorNo.NO_ERROR, all_cost=146.50907588005066, timestamp=1690494738.7311556)	[('tile_x', 1), ('tile_xT', 52)],None,200
-autotvm - DEBUG - No: 55	GFLOPS: 3.63/8.11	result: MeasureResult(costs=(35.24591036,), error_no=MeasureErrorNo.NO_ERROR, all_cost=71.34684205055237, timestamp=1690494810.0904963)	[('tile_x', 5), ('tile_xT', 52)],None,203
-autotvm - DEBUG - No: 56	GFLOPS: 6.76/8.11	result: MeasureResult(costs=(18.925344068999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=38.859182834625244, timestamp=1690494848.5586543)	[('tile_x', 40), ('tile_xT', 52)],None,209
-autotvm - DEBUG - No: 57	GFLOPS: 5.97/8.11	result: MeasureResult(costs=(21.42568519,), error_no=MeasureErrorNo.NO_ERROR, all_cost=44.5622136592865, timestamp=1690494892.2908876)	[('tile_x', 100), ('tile_xT', 52)],None,212
-autotvm - DEBUG - No: 58	GFLOPS: 4.24/8.11	result: MeasureResult(costs=(30.219147912,), error_no=MeasureErrorNo.NO_ERROR, all_cost=61.508957624435425, timestamp=1690494953.8149445)	[('tile_x', 5), ('tile_xT', 100)],None,223
-autotvm - DEBUG - No: 59	GFLOPS: 4.63/8.11	result: MeasureResult(costs=(27.629667106,), error_no=MeasureErrorNo.NO_ERROR, all_cost=56.01132559776306, timestamp=1690495009.7905822)	[('tile_x', 16), ('tile_xT', 100)],None,226
-autotvm - DEBUG - No: 60	GFLOPS: 4.99/8.11	result: MeasureResult(costs=(25.663203323999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.3901584148407, timestamp=1690495062.1800947)	[('tile_x', 20), ('tile_xT', 100)],None,227
-autotvm - DEBUG - No: 61	GFLOPS: 8.07/8.11	result: MeasureResult(costs=(15.870789632,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.76159620285034, timestamp=1690495094.8339403)	[('tile_x', 80), ('tile_xT', 100)],None,231
-autotvm - DEBUG - No: 62	GFLOPS: 8.12/8.12	result: MeasureResult(costs=(15.757501288,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.36292338371277, timestamp=1690495127.208776)	[('tile_x', 250), ('tile_xT', 100)],None,235
-autotvm - DEBUG - No: 63	GFLOPS: 7.81/8.12	result: MeasureResult(costs=(16.387030465,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.85259127616882, timestamp=1690495160.8793128)	[('tile_x', 2000), ('tile_xT', 100)],None,239
-autotvm - DEBUG - No: 64	GFLOPS: 3.87/8.12	result: MeasureResult(costs=(33.056201505,), error_no=MeasureErrorNo.NO_ERROR, all_cost=67.52767372131348, timestamp=1690495228.302969)	[('tile_x', 8), ('tile_xT', 104)],None,244
-autotvm - DEBUG - No: 65	GFLOPS: 6.07/8.12	result: MeasureResult(costs=(21.080235852999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=43.014232873916626, timestamp=1690495271.3411336)	[('tile_x', 100), ('tile_xT', 104)],None,252
-autotvm - DEBUG - No: 66	GFLOPS: 7.21/8.12	result: MeasureResult(costs=(17.750335979,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.31233501434326, timestamp=1690495307.6234834)	[('tile_x', 400), ('tile_xT', 104)],None,256
-autotvm - DEBUG - No: 67	GFLOPS: 7.81/8.12	result: MeasureResult(costs=(16.378910103,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.64777421951294, timestamp=1690495341.3004267)	[('tile_x', 2000), ('tile_xT', 104)],None,259
-autotvm - DEBUG - No: 68	GFLOPS: 1.47/8.12	result: MeasureResult(costs=(87.17146651899999,), error_no=MeasureErrorNo.NO_ERROR, all_cost=169.7465968132019, timestamp=1690495511.0661492)	[('tile_x', 1), ('tile_xT', 200)],None,260
-autotvm - DEBUG - No: 69	GFLOPS: 3.88/8.12	result: MeasureResult(costs=(32.960792041,), error_no=MeasureErrorNo.NO_ERROR, all_cost=65.14180421829224, timestamp=1690495576.1905484)	[('tile_x', 4), ('tile_xT', 200)],None,262
-autotvm - DEBUG - No: 70	GFLOPS: 4.59/8.12	result: MeasureResult(costs=(27.860499222999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=57.10047101974487, timestamp=1690495632.8279521)	[('tile_x', 16), ('tile_xT', 200)],None,266
-autotvm - DEBUG - No: 71	GFLOPS: 5.00/8.12	result: MeasureResult(costs=(25.58297267,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.354952573776245, timestamp=1690495685.1926703)	[('tile_x', 20), ('tile_xT', 200)],None,267
-autotvm - DEBUG - No: 72	GFLOPS: 4.82/8.12	result: MeasureResult(costs=(26.542249988,), error_no=MeasureErrorNo.NO_ERROR, all_cost=53.60149121284485, timestamp=1690495738.7672417)	[('tile_x', 25), ('tile_xT', 200)],None,268
-autotvm - DEBUG - No: 73	GFLOPS: 7.31/8.12	result: MeasureResult(costs=(17.500613119,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.85458827018738, timestamp=1690495774.6534863)	[('tile_x', 250), ('tile_xT', 200)],None,275
-autotvm - DEBUG - No: 74	GFLOPS: 7.57/8.12	result: MeasureResult(costs=(16.918603984,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.119627714157104, timestamp=1690495809.690715)	[('tile_x', 1000), ('tile_xT', 200)],None,278
-autotvm - DEBUG - No: 75	GFLOPS: 1.38/8.12	result: MeasureResult(costs=(92.843061326,), error_no=MeasureErrorNo.NO_ERROR, all_cost=184.67018103599548, timestamp=1690495994.3381343)	[('tile_x', 1), ('tile_xT', 260)],None,280
-autotvm - DEBUG - No: 76	GFLOPS: 3.55/8.12	result: MeasureResult(costs=(36.071897107999995,), error_no=MeasureErrorNo.NO_ERROR, all_cost=73.67701745033264, timestamp=1690496067.485475)	[('tile_x', 10), ('tile_xT', 260)],None,285
-autotvm - DEBUG - No: 77	GFLOPS: 7.96/8.12	result: MeasureResult(costs=(16.073252915999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.36869502067566, timestamp=1690496100.8814597)	[('tile_x', 80), ('tile_xT', 260)],None,291
-autotvm - DEBUG - No: 78	GFLOPS: 5.42/8.12	result: MeasureResult(costs=(23.636359401999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=47.60948991775513, timestamp=1690496148.5027192)	[('tile_x', 125), ('tile_xT', 260)],None,293
-autotvm - DEBUG - No: 79	GFLOPS: 7.43/8.12	result: MeasureResult(costs=(17.225094415,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.42488431930542, timestamp=1690496183.859428)	[('tile_x', 1000), ('tile_xT', 260)],None,298
-autotvm - DEBUG - No: 80	GFLOPS: 1.92/8.12	result: MeasureResult(costs=(66.49848019400001,), error_no=MeasureErrorNo.NO_ERROR, all_cost=133.65771770477295, timestamp=1690496317.509908)	[('tile_x', 2), ('tile_xT', 325)],None,301
-autotvm - DEBUG - No: 81	GFLOPS: 3.23/8.12	result: MeasureResult(costs=(39.568818593,), error_no=MeasureErrorNo.NO_ERROR, all_cost=80.11070537567139, timestamp=1690496397.6282032)	[('tile_x', 10), ('tile_xT', 325)],None,305
-autotvm - DEBUG - No: 82	GFLOPS: 3.21/8.12	result: MeasureResult(costs=(39.85630564,), error_no=MeasureErrorNo.NO_ERROR, all_cost=80.91167640686035, timestamp=1690496478.4928215)	[('tile_x', 16), ('tile_xT', 325)],None,306
-autotvm - DEBUG - No: 83	GFLOPS: 1.56/8.12	result: MeasureResult(costs=(82.125705833,), error_no=MeasureErrorNo.NO_ERROR, all_cost=161.68607902526855, timestamp=1690496640.169747)	[('tile_x', 2), ('tile_xT', 520)],None,321
-autotvm - DEBUG - No: 84	GFLOPS: 5.65/8.12	result: MeasureResult(costs=(22.673898085,), error_no=MeasureErrorNo.NO_ERROR, all_cost=46.25918173789978, timestamp=1690496686.3270268)	[('tile_x', 100), ('tile_xT', 520)],None,332
-autotvm - DEBUG - No: 85	GFLOPS: 6.49/8.12	result: MeasureResult(costs=(19.717225619,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.66849374771118, timestamp=1690496726.995869)	[('tile_x', 200), ('tile_xT', 520)],None,334
-autotvm - DEBUG - No: 86	GFLOPS: 6.58/8.12	result: MeasureResult(costs=(19.438148519,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.164995431900024, timestamp=1690496767.10615)	[('tile_x', 250), ('tile_xT', 520)],None,335
-autotvm - DEBUG - No: 87	GFLOPS: 6.32/8.12	result: MeasureResult(costs=(20.256457013,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.296233892440796, timestamp=1690496808.4401557)	[('tile_x', 400), ('tile_xT', 520)],None,336
-autotvm - DEBUG - No: 88	GFLOPS: 2.43/8.12	result: MeasureResult(costs=(52.694883438999994,), error_no=MeasureErrorNo.NO_ERROR, all_cost=106.26429438591003, timestamp=1690496914.7341402)	[('tile_x', 10), ('tile_xT', 650)],None,345
-autotvm - DEBUG - No: 89	GFLOPS: 5.11/8.12	result: MeasureResult(costs=(25.061465251,), error_no=MeasureErrorNo.NO_ERROR, all_cost=51.03748154640198, timestamp=1690496965.7908273)	[('tile_x', 100), ('tile_xT', 650)],None,352
-autotvm - DEBUG - No: 90	GFLOPS: 6.40/8.12	result: MeasureResult(costs=(19.985563185,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.20973467826843, timestamp=1690497007.02502)	[('tile_x', 250), ('tile_xT', 650)],None,355
-autotvm - DEBUG - No: 91	GFLOPS: 6.29/8.12	result: MeasureResult(costs=(20.355886431,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.82719850540161, timestamp=1690497048.7871122)	[('tile_x', 400), ('tile_xT', 650)],None,356
-autotvm - DEBUG - No: 92	GFLOPS: 0.00/8.12	result: Traceback (most recent call last):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 742, in __call__
-    yield remote, remote.load_module(os.path.split(build_result.filename)[1])
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 706, in run_through_rpc
-    costs = time_f(*args).results
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 357, in evaluator
-    blob = feval(*args)
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 331, in tvm._ffi._cy3.core.PackedFuncBase.__call__
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 262, in tvm._ffi._cy3.core.FuncCall
-  File "tvm/_ffi/_cython/./packed_func.pxi", line 251, in tvm._ffi._cy3.core.FuncCall3
-  File "tvm/_ffi/_cython/./base.pxi", line 181, in tvm._ffi._cy3.core.CHECK_CALL
-tvm._ffi.base.TVMError: Traceback (most recent call last):
-  3: TVMFuncCall
-  2: tvm::runtime::RPCWrappedFunc::operator()(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*) const
-  1: tvm::runtime::RPCClientSession::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)> const&)
-  0: tvm::runtime::RPCEndpoint::CallFunc(void*, TVMValue const*, int const*, int, std::function<void (tvm::runtime::TVMArgs)>)
-  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 804
-TVMError: 
----------------------------------------------------------------
-An error occurred during the execution of TVM.
-For more information, please see: https://tvm.apache.org/docs/errors.html
----------------------------------------------------------------
-  Check failed: (code == RPCCode::kReturn) is false: code=kShutdown
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 671, in run_through_rpc
-    with module_loader(remote_kwargs, build_result) as (remote, mod):
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/contextlib.py", line 153, in __exit__
-    self.gen.throw(typ, value, traceback)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/autotvm/measure/measure_methods.py", line 746, in __call__
-    remote.remove(build_result.filename)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 144, in remove
-    self._remote_funcs["remove"] = self.get_function("tvm.rpc.server.remove")
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/rpc/client.py", line 72, in get_function
-    return self._sess.get_function(name)
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/runtime/module.py", line 169, in get_function
-    check_call(
-  File "/home/pparamasivam/anaconda3/envs/tvm/lib/python3.10/site-packages/tvm/_ffi/base.py", line 348, in check_call
-    raise get_last_ffi_error()
-tvm._ffi.base.TVMError: Traceback (most recent call last):
-  94: 0xffffffffffffffff
-  93: 0x000000000058c1ed
-  92: __libc_start_main
-  91: Py_BytesMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
-  90: Py_RunMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
-  89: pymain_run_python
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
-  88: pymain_run_module
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
-  87: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  86: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  85: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  84: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  83: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  82: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  81: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  80: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  79: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  78: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  77: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  76: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  75: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  74: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  73: cfunction_vectorcall_FASTCALL
-        at /usr/local/src/conda/python-3.10.9/Objects/methodobject.c:430
-  72: builtin_exec
-        at /usr/local/src/conda/python-3.10.9/Python/clinic/bltinmodule.c.h:371
-  71: builtin_exec_impl
-        at /usr/local/src/conda/python-3.10.9/Python/bltinmodule.c:1056
-  70: PyEval_EvalCode
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:1134
-  69: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  68: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  67: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  66: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  65: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  64: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  63: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  62: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  61: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  60: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4277
-  59: do_call_core
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5943
-  58: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  57: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  56: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  55: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4113
-  54: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  53: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  52: method_vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/classobject.c:53
-  51: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  50: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  49: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  48: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  47: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  46: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  45: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  44: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  43: method_vectorcall_VARARGS
-        at /usr/local/src/conda/python-3.10.9/Objects/descrobject.c:311
-  42: gen_throw
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:571
-  41: _gen_throw
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:549
-  40: gen_send_ex
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:279
-  39: gen_send_ex2
-        at /usr/local/src/conda/python-3.10.9/Objects/genobject.c:213
-  38: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  37: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  36: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  35: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  34: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  33: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  32: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  31: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  30: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  29: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  28: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  27: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  26: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  25: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  24: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  23: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4198
-  22: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  21: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  20: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:114
-  19: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  18: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  17: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  16: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4181
-  15: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  14: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:123
-  13: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:99
-  12: _PyObject_VectorcallTstate
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:112
-  11: _PyObject_MakeTpCall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:215
-  10: PyCFuncPtr_call
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/_ctypes.c:4201
-  9: _ctypes_callproc
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:1262
-  8: _call_function_pointer
-        at /usr/local/src/conda/python-3.10.9/Modules/_ctypes/callproc.c:916
-  7: ffi_call
-  6: ffi_call_int
-  5: ffi_call_unix64
-  4: TVMModGetFunction
-  3: tvm::runtime::ModuleNode::GetFunction(std::string const&, bool) [clone .localalias]
-  2: tvm::runtime::RPCModuleNode::GetFunction(std::string const&, tvm::runtime::ObjectPtr<tvm::runtime::Object> const&)
-  1: tvm::runtime::RPCClientSession::GetFunction(std::string const&)
-  0: tvm::runtime::PackedFuncObj::Extractor<tvm::runtime::PackedFuncSubObj<tvm::runtime::RPCEndpoint::Init()::{lambda(tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)#2}> >::Call(tvm::runtime::PackedFuncObj const*, tvm::runtime::TVMArgs, tvm::runtime::TVMRetValue*)
-  File "/workspace/tvm/src/runtime/rpc/rpc_endpoint.cc", line 684
-TVMError: 
----------------------------------------------------------------
-An error occurred during the execution of TVM.
-For more information, please see: https://tvm.apache.org/docs/errors.html
----------------------------------------------------------------
-  Check failed: (code == RPCCode::kReturn) is false: code=1
-
-Traceback (most recent call last):
-  94: 0xffffffffffffffff
-  93: 0x000000000058c1ed
-  92: __libc_start_main
-  91: Py_BytesMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:1090
-  90: Py_RunMain
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:670
-  89: pymain_run_python
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:585
-  88: pymain_run_module
-        at /usr/local/src/conda/python-3.10.9/Modules/main.c:297
-  87: _PyFunction_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Objects/call.c:342
-  86: _PyEval_Vector
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5065
-  85: _PyEval_EvalFrame
-        at /usr/local/src/conda/python-3.10.9/Include/internal/pycore_ceval.h:46
-  84: _PyEval_EvalFrameDefault
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:4213
-  83: call_function
-        at /usr/local/src/conda/python-3.10.9/Python/ceval.c:5891
-  82: PyObject_Vectorcall
-        at /usr/local/src/conda/python-3.10.9/Include/cpython/abstract.h:12	[('tile_x', 1), ('tile_xT', 1300)],None,360
-autotvm - DEBUG - No: 93	GFLOPS: 1.23/8.12	result: MeasureResult(costs=(104.233275212,), error_no=MeasureErrorNo.NO_ERROR, all_cost=209.62876296043396, timestamp=1690497759.1432939)	[('tile_x', 4), ('tile_xT', 1300)],None,362
-autotvm - DEBUG - No: 94	GFLOPS: 4.31/8.12	result: MeasureResult(costs=(29.666500246,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.568588972091675, timestamp=1690497819.6809316)	[('tile_x', 100), ('tile_xT', 1300)],None,372
-autotvm - DEBUG - No: 95	GFLOPS: 0.87/8.12	result: MeasureResult(costs=(146.38785623,), error_no=MeasureErrorNo.NO_ERROR, all_cost=292.6852595806122, timestamp=1690498112.3281457)	[('tile_x', 4), ('tile_xT', 2600)],None,382
-autotvm - DEBUG - No: 96	GFLOPS: 1.08/8.12	result: MeasureResult(costs=(118.895130187,), error_no=MeasureErrorNo.NO_ERROR, all_cost=239.2458233833313, timestamp=1690498351.5727057)	[('tile_x', 5), ('tile_xT', 2600)],None,383
-autotvm - DEBUG - No: 97	GFLOPS: 1.74/8.12	result: MeasureResult(costs=(73.66900874299999,), error_no=MeasureErrorNo.NO_ERROR, all_cost=148.45689225196838, timestamp=1690498499.9667747)	[('tile_x', 20), ('tile_xT', 2600)],None,387
-autotvm - DEBUG - No: 98	GFLOPS: 3.97/8.12	result: MeasureResult(costs=(32.281001855999996,), error_no=MeasureErrorNo.NO_ERROR, all_cost=65.69836688041687, timestamp=1690498565.6155546)	[('tile_x', 100), ('tile_xT', 2600)],None,392
-autotvm - DEBUG - No: 99	GFLOPS: 3.65/8.12	result: MeasureResult(costs=(35.06622169,), error_no=MeasureErrorNo.NO_ERROR, all_cost=71.1311240196228, timestamp=1690498636.7672381)	[('tile_x', 125), ('tile_xT', 2600)],None,393
-autotvm - DEBUG - No: 100	GFLOPS: 3.02/8.12	result: MeasureResult(costs=(42.443944433,), error_no=MeasureErrorNo.NO_ERROR, all_cost=86.1890561580658, timestamp=1690498722.9486284)	[('tile_x', 2000), ('tile_xT', 2600)],None,399
-root - INFO - Elpased time = 8084.051532506943
+autotvm - DEBUG - No: 1	GFLOPS: 0.72/0.72	result: MeasureResult(costs=(176.86919705600002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=354.60037302970886, timestamp=1690933265.1806302)	[('tile_x', 2), ('tile_xT', 1)],None,1
+autotvm - DEBUG - No: 2	GFLOPS: 0.64/0.72	result: MeasureResult(costs=(201.36253218899998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=409.6817672252655, timestamp=1690933674.814902)	[('tile_x', 10), ('tile_xT', 1)],None,5
+autotvm - DEBUG - No: 3	GFLOPS: 2.35/2.35	result: MeasureResult(costs=(54.353809888,), error_no=MeasureErrorNo.NO_ERROR, all_cost=112.15595412254333, timestamp=1690933786.8949947)	[('tile_x', 400), ('tile_xT', 1)],None,16
+autotvm - DEBUG - No: 4	GFLOPS: 1.11/2.35	result: MeasureResult(costs=(115.295996505,), error_no=MeasureErrorNo.NO_ERROR, all_cost=232.99372363090515, timestamp=1690934019.8303068)	[('tile_x', 5), ('tile_xT', 2)],None,23
+autotvm - DEBUG - No: 5	GFLOPS: 2.25/2.35	result: MeasureResult(costs=(56.891198291,), error_no=MeasureErrorNo.NO_ERROR, all_cost=111.20457220077515, timestamp=1690934130.9480224)	[('tile_x', 8), ('tile_xT', 2)],None,24
+autotvm - DEBUG - No: 6	GFLOPS: 0.93/2.35	result: MeasureResult(costs=(137.672961972,), error_no=MeasureErrorNo.NO_ERROR, all_cost=279.52556920051575, timestamp=1690934410.3884597)	[('tile_x', 16), ('tile_xT', 2)],None,26
+autotvm - DEBUG - No: 7	GFLOPS: 3.89/3.89	result: MeasureResult(costs=(32.868265677000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=68.92629671096802, timestamp=1690934479.2657084)	[('tile_x', 40), ('tile_xT', 2)],None,29
+autotvm - DEBUG - No: 8	GFLOPS: 3.88/3.89	result: MeasureResult(costs=(33.020099964,), error_no=MeasureErrorNo.NO_ERROR, all_cost=68.43295454978943, timestamp=1690934547.2953615)	[('tile_x', 50), ('tile_xT', 2)],None,30
+autotvm - DEBUG - No: 9	GFLOPS: 2.83/3.89	result: MeasureResult(costs=(45.239175648999996,), error_no=MeasureErrorNo.NO_ERROR, all_cost=92.35659170150757, timestamp=1690934639.5864644)	[('tile_x', 8), ('tile_xT', 4)],None,44
+autotvm - DEBUG - No: 10	GFLOPS: 2.67/3.89	result: MeasureResult(costs=(47.86224586,), error_no=MeasureErrorNo.NO_ERROR, all_cost=108.55486869812012, timestamp=1690934748.071754)	[('tile_x', 10), ('tile_xT', 4)],None,45
+autotvm - DEBUG - No: 11	GFLOPS: 3.42/3.89	result: MeasureResult(costs=(37.412559751,), error_no=MeasureErrorNo.NO_ERROR, all_cost=88.10500431060791, timestamp=1690934836.0686247)	[('tile_x', 25), ('tile_xT', 4)],None,48
+autotvm - DEBUG - No: 12	GFLOPS: 4.87/4.87	result: MeasureResult(costs=(26.289976146,), error_no=MeasureErrorNo.NO_ERROR, all_cost=55.53276491165161, timestamp=1690934891.5150125)	[('tile_x', 50), ('tile_xT', 4)],None,50
+autotvm - DEBUG - No: 13	GFLOPS: 3.83/4.87	result: MeasureResult(costs=(33.450578646000004,), error_no=MeasureErrorNo.NO_ERROR, all_cost=69.07302689552307, timestamp=1690934960.5629034)	[('tile_x', 125), ('tile_xT', 4)],None,53
+autotvm - DEBUG - No: 14	GFLOPS: 1.98/4.87	result: MeasureResult(costs=(64.808556227,), error_no=MeasureErrorNo.NO_ERROR, all_cost=134.203759431839, timestamp=1690935094.677648)	[('tile_x', 2), ('tile_xT', 5)],None,61
+autotvm - DEBUG - No: 15	GFLOPS: 3.53/4.87	result: MeasureResult(costs=(36.22807873,), error_no=MeasureErrorNo.NO_ERROR, all_cost=84.56396126747131, timestamp=1690935179.17041)	[('tile_x', 16), ('tile_xT', 5)],None,66
+autotvm - DEBUG - No: 16	GFLOPS: 4.57/4.87	result: MeasureResult(costs=(27.994071857999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=59.558507442474365, timestamp=1690935238.6839607)	[('tile_x', 100), ('tile_xT', 5)],None,72
+autotvm - DEBUG - No: 17	GFLOPS: 5.72/5.72	result: MeasureResult(costs=(22.385064904,), error_no=MeasureErrorNo.NO_ERROR, all_cost=46.40494704246521, timestamp=1690935285.061429)	[('tile_x', 500), ('tile_xT', 5)],None,77
+autotvm - DEBUG - No: 18	GFLOPS: 6.69/6.69	result: MeasureResult(costs=(19.140848475,), error_no=MeasureErrorNo.NO_ERROR, all_cost=39.69018244743347, timestamp=1690935324.6803367)	[('tile_x', 2000), ('tile_xT', 5)],None,79
+autotvm - DEBUG - No: 19	GFLOPS: 2.08/6.69	result: MeasureResult(costs=(61.454805966,), error_no=MeasureErrorNo.NO_ERROR, all_cost=124.34449768066406, timestamp=1690935449.0070415)	[('tile_x', 1), ('tile_xT', 8)],None,80
+autotvm - DEBUG - No: 20	GFLOPS: 3.17/6.69	result: MeasureResult(costs=(40.317759655,), error_no=MeasureErrorNo.NO_ERROR, all_cost=77.3827576637268, timestamp=1690935526.2903621)	[('tile_x', 10), ('tile_xT', 8)],None,85
+autotvm - DEBUG - No: 21	GFLOPS: 4.21/6.69	result: MeasureResult(costs=(30.384448934,), error_no=MeasureErrorNo.NO_ERROR, all_cost=63.70709586143494, timestamp=1690935589.9356232)	[('tile_x', 16), ('tile_xT', 8)],None,86
+autotvm - DEBUG - No: 22	GFLOPS: 4.19/6.69	result: MeasureResult(costs=(30.566282024,), error_no=MeasureErrorNo.NO_ERROR, all_cost=64.17766523361206, timestamp=1690935653.9314256)	[('tile_x', 25), ('tile_xT', 8)],None,88
+autotvm - DEBUG - No: 23	GFLOPS: 5.06/6.69	result: MeasureResult(costs=(25.284236191,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.827231645584106, timestamp=1690935706.6919134)	[('tile_x', 80), ('tile_xT', 8)],None,91
+autotvm - DEBUG - No: 24	GFLOPS: 6.11/6.69	result: MeasureResult(costs=(20.935967669,), error_no=MeasureErrorNo.NO_ERROR, all_cost=43.608033180236816, timestamp=1690935750.1813383)	[('tile_x', 250), ('tile_xT', 8)],None,95
+autotvm - DEBUG - No: 25	GFLOPS: 3.25/6.69	result: MeasureResult(costs=(39.427329015000005,), error_no=MeasureErrorNo.NO_ERROR, all_cost=85.78151893615723, timestamp=1690935835.8923085)	[('tile_x', 8), ('tile_xT', 10)],None,104
+autotvm - DEBUG - No: 26	GFLOPS: 4.36/6.69	result: MeasureResult(costs=(29.334580691,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.54777956008911, timestamp=1690935896.3296854)	[('tile_x', 25), ('tile_xT', 10)],None,108
+autotvm - DEBUG - No: 27	GFLOPS: 4.68/6.69	result: MeasureResult(costs=(27.360077234000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=55.773650884628296, timestamp=1690935951.8586211)	[('tile_x', 40), ('tile_xT', 10)],None,109
+autotvm - DEBUG - No: 28	GFLOPS: 5.31/6.69	result: MeasureResult(costs=(24.095119965000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=49.71441054344177, timestamp=1690936001.2251647)	[('tile_x', 80), ('tile_xT', 10)],None,111
+autotvm - DEBUG - No: 29	GFLOPS: 6.58/6.69	result: MeasureResult(costs=(19.455187048,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.06701445579529, timestamp=1690936042.250974)	[('tile_x', 250), ('tile_xT', 10)],None,115
+autotvm - DEBUG - No: 30	GFLOPS: 6.56/6.69	result: MeasureResult(costs=(19.504111099000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.54569053649902, timestamp=1690936082.7115338)	[('tile_x', 400), ('tile_xT', 10)],None,116
+autotvm - DEBUG - No: 31	GFLOPS: 7.54/7.54	result: MeasureResult(costs=(16.982279556,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.865172386169434, timestamp=1690936118.1748035)	[('tile_x', 2000), ('tile_xT', 10)],None,119
+autotvm - DEBUG - No: 32	GFLOPS: 2.42/7.54	result: MeasureResult(costs=(52.956190273,), error_no=MeasureErrorNo.NO_ERROR, all_cost=107.29974746704102, timestamp=1690936225.485309)	[('tile_x', 1), ('tile_xT', 16)],None,120
+autotvm - DEBUG - No: 33	GFLOPS: 5.23/7.54	result: MeasureResult(costs=(24.496971680999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=53.341064453125, timestamp=1690936277.9608088)	[('tile_x', 50), ('tile_xT', 16)],None,130
+autotvm - DEBUG - No: 34	GFLOPS: 7.32/7.54	result: MeasureResult(costs=(17.478724163,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.63117694854736, timestamp=1690936314.4919996)	[('tile_x', 200), ('tile_xT', 16)],None,134
+autotvm - DEBUG - No: 35	GFLOPS: 7.18/7.54	result: MeasureResult(costs=(17.82188826,), error_no=MeasureErrorNo.NO_ERROR, all_cost=37.17672514915466, timestamp=1690936351.4997075)	[('tile_x', 250), ('tile_xT', 16)],None,135
+autotvm - DEBUG - No: 36	GFLOPS: 7.11/7.54	result: MeasureResult(costs=(17.995167619,), error_no=MeasureErrorNo.NO_ERROR, all_cost=37.53898739814758, timestamp=1690936388.8982522)	[('tile_x', 400), ('tile_xT', 16)],None,136
+autotvm - DEBUG - No: 37	GFLOPS: 3.48/7.54	result: MeasureResult(costs=(36.83355682,), error_no=MeasureErrorNo.NO_ERROR, all_cost=78.07420134544373, timestamp=1690936466.9506412)	[('tile_x', 4), ('tile_xT', 20)],None,142
+autotvm - DEBUG - No: 38	GFLOPS: 3.46/7.54	result: MeasureResult(costs=(37.007614253,), error_no=MeasureErrorNo.NO_ERROR, all_cost=75.89669060707092, timestamp=1690936542.5312963)	[('tile_x', 16), ('tile_xT', 20)],None,146
+autotvm - DEBUG - No: 39	GFLOPS: 4.78/7.54	result: MeasureResult(costs=(26.773456366999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=55.401607036590576, timestamp=1690936597.795197)	[('tile_x', 25), ('tile_xT', 20)],None,148
+autotvm - DEBUG - No: 40	GFLOPS: 7.51/7.54	result: MeasureResult(costs=(17.041109544999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.43116211891174, timestamp=1690936633.8761182)	[('tile_x', 200), ('tile_xT', 20)],None,154
+autotvm - DEBUG - No: 41	GFLOPS: 7.73/7.73	result: MeasureResult(costs=(16.563109298,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.161022663116455, timestamp=1690936668.7533786)	[('tile_x', 1000), ('tile_xT', 20)],None,158
+autotvm - DEBUG - No: 42	GFLOPS: 8.18/8.18	result: MeasureResult(costs=(15.642046614000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.16527485847473, timestamp=1690936701.5392914)	[('tile_x', 2000), ('tile_xT', 20)],None,159
+autotvm - DEBUG - No: 43	GFLOPS: 5.87/8.18	result: MeasureResult(costs=(21.797673293,), error_no=MeasureErrorNo.NO_ERROR, all_cost=45.057921409606934, timestamp=1690936746.3894405)	[('tile_x', 100), ('tile_xT', 25)],None,172
+autotvm - DEBUG - No: 44	GFLOPS: 6.89/8.18	result: MeasureResult(costs=(18.572184525,), error_no=MeasureErrorNo.NO_ERROR, all_cost=38.25586438179016, timestamp=1690936784.598784)	[('tile_x', 125), ('tile_xT', 25)],None,173
+autotvm - DEBUG - No: 45	GFLOPS: 7.44/8.18	result: MeasureResult(costs=(17.212513512,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.197444915771484, timestamp=1690936820.4588814)	[('tile_x', 250), ('tile_xT', 25)],None,175
+autotvm - DEBUG - No: 46	GFLOPS: 7.57/8.18	result: MeasureResult(costs=(16.917681035,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.36076378822327, timestamp=1690936855.443689)	[('tile_x', 500), ('tile_xT', 25)],None,177
+autotvm - DEBUG - No: 47	GFLOPS: 7.88/8.18	result: MeasureResult(costs=(16.240981142,), error_no=MeasureErrorNo.NO_ERROR, all_cost=34.0870406627655, timestamp=1690936889.1670601)	[('tile_x', 2000), ('tile_xT', 25)],None,179
+autotvm - DEBUG - No: 48	GFLOPS: 3.36/8.18	result: MeasureResult(costs=(38.053346998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=75.50238156318665, timestamp=1690936964.3186653)	[('tile_x', 10), ('tile_xT', 40)],None,185
+autotvm - DEBUG - No: 49	GFLOPS: 5.08/8.18	result: MeasureResult(costs=(25.185431958000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=54.82884216308594, timestamp=1690937018.878284)	[('tile_x', 20), ('tile_xT', 40)],None,187
+autotvm - DEBUG - No: 50	GFLOPS: 7.80/8.18	result: MeasureResult(costs=(16.408191517,), error_no=MeasureErrorNo.NO_ERROR, all_cost=34.85253190994263, timestamp=1690937053.3987606)	[('tile_x', 400), ('tile_xT', 40)],None,196
+autotvm - DEBUG - No: 51	GFLOPS: 7.78/8.18	result: MeasureResult(costs=(16.447761556,), error_no=MeasureErrorNo.NO_ERROR, all_cost=34.628376483917236, timestamp=1690937087.7561786)	[('tile_x', 500), ('tile_xT', 40)],None,197
+autotvm - DEBUG - No: 52	GFLOPS: 5.13/8.18	result: MeasureResult(costs=(24.949457381,), error_no=MeasureErrorNo.NO_ERROR, all_cost=51.43016481399536, timestamp=1690937138.7694318)	[('tile_x', 20), ('tile_xT', 50)],None,207
+autotvm - DEBUG - No: 53	GFLOPS: 8.14/8.18	result: MeasureResult(costs=(15.734054415000001,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.761221170425415, timestamp=1690937171.4149868)	[('tile_x', 200), ('tile_xT', 50)],None,214
+autotvm - DEBUG - No: 54	GFLOPS: 8.06/8.18	result: MeasureResult(costs=(15.883978027,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.98312950134277, timestamp=1690937204.414142)	[('tile_x', 1000), ('tile_xT', 50)],None,218
+autotvm - DEBUG - No: 55	GFLOPS: 3.14/8.18	result: MeasureResult(costs=(40.791378227,), error_no=MeasureErrorNo.NO_ERROR, all_cost=82.39114570617676, timestamp=1690937286.8257139)	[('tile_x', 2), ('tile_xT', 80)],None,221
+autotvm - DEBUG - No: 56	GFLOPS: 4.97/8.18	result: MeasureResult(costs=(25.738009048,), error_no=MeasureErrorNo.NO_ERROR, all_cost=53.157270669937134, timestamp=1690937339.9061146)	[('tile_x', 8), ('tile_xT', 80)],None,224
+autotvm - DEBUG - No: 57	GFLOPS: 5.15/8.18	result: MeasureResult(costs=(24.86350561,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.33216452598572, timestamp=1690937392.0053308)	[('tile_x', 25), ('tile_xT', 80)],None,228
+autotvm - DEBUG - No: 58	GFLOPS: 8.05/8.18	result: MeasureResult(costs=(15.905440968,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.50256967544556, timestamp=1690937425.4850101)	[('tile_x', 500), ('tile_xT', 80)],None,237
+autotvm - DEBUG - No: 59	GFLOPS: 7.93/8.18	result: MeasureResult(costs=(16.138459328,), error_no=MeasureErrorNo.NO_ERROR, all_cost=33.76651191711426, timestamp=1690937458.9452105)	[('tile_x', 2000), ('tile_xT', 80)],None,239
+autotvm - DEBUG - No: 60	GFLOPS: 4.11/8.18	result: MeasureResult(costs=(31.154689857,), error_no=MeasureErrorNo.NO_ERROR, all_cost=63.412479639053345, timestamp=1690937522.1151683)	[('tile_x', 4), ('tile_xT', 100)],None,242
+autotvm - DEBUG - No: 61	GFLOPS: 4.50/8.18	result: MeasureResult(costs=(28.46515712,), error_no=MeasureErrorNo.NO_ERROR, all_cost=58.29044556617737, timestamp=1690937580.4042363)	[('tile_x', 10), ('tile_xT', 100)],None,245
+autotvm - DEBUG - No: 62	GFLOPS: 4.71/8.18	result: MeasureResult(costs=(27.196726841,), error_no=MeasureErrorNo.NO_ERROR, all_cost=56.15621280670166, timestamp=1690937636.2585943)	[('tile_x', 16), ('tile_xT', 100)],None,246
+autotvm - DEBUG - No: 63	GFLOPS: 7.26/8.18	result: MeasureResult(costs=(17.623898275,), error_no=MeasureErrorNo.NO_ERROR, all_cost=37.12053918838501, timestamp=1690937673.0042567)	[('tile_x', 125), ('tile_xT', 100)],None,253
+autotvm - DEBUG - No: 64	GFLOPS: 8.44/8.44	result: MeasureResult(costs=(15.164403365,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.21591830253601, timestamp=1690937704.8910093)	[('tile_x', 200), ('tile_xT', 100)],None,254
+autotvm - DEBUG - No: 65	GFLOPS: 3.30/8.44	result: MeasureResult(costs=(38.840580003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=78.31513929367065, timestamp=1690937783.2363336)	[('tile_x', 2), ('tile_xT', 125)],None,261
+autotvm - DEBUG - No: 66	GFLOPS: 5.16/8.44	result: MeasureResult(costs=(24.813071873000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=51.11851263046265, timestamp=1690937834.015068)	[('tile_x', 8), ('tile_xT', 125)],None,264
+autotvm - DEBUG - No: 67	GFLOPS: 8.93/8.93	result: MeasureResult(costs=(14.335435944,), error_no=MeasureErrorNo.NO_ERROR, all_cost=30.395803213119507, timestamp=1690937864.0398507)	[('tile_x', 40), ('tile_xT', 125)],None,269
+autotvm - DEBUG - No: 68	GFLOPS: 8.13/8.93	result: MeasureResult(costs=(15.740260939,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.8388249874115, timestamp=1690937896.893258)	[('tile_x', 100), ('tile_xT', 125)],None,272
+autotvm - DEBUG - No: 69	GFLOPS: 8.40/8.93	result: MeasureResult(costs=(15.242082051999999,), error_no=MeasureErrorNo.NO_ERROR, all_cost=31.704094648361206, timestamp=1690937928.6422296)	[('tile_x', 200), ('tile_xT', 125)],None,274
+autotvm - DEBUG - No: 70	GFLOPS: 7.37/8.93	result: MeasureResult(costs=(17.364937665000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.263022899627686, timestamp=1690937964.6348104)	[('tile_x', 500), ('tile_xT', 125)],None,277
+autotvm - DEBUG - No: 71	GFLOPS: 8.85/8.93	result: MeasureResult(costs=(14.456335058,), error_no=MeasureErrorNo.NO_ERROR, all_cost=30.23075270652771, timestamp=1690937994.4891145)	[('tile_x', 40), ('tile_xT', 200)],None,289
+autotvm - DEBUG - No: 72	GFLOPS: 8.17/8.93	result: MeasureResult(costs=(15.660701691,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.266785621643066, timestamp=1690938026.7592046)	[('tile_x', 80), ('tile_xT', 200)],None,291
+autotvm - DEBUG - No: 73	GFLOPS: 7.32/8.93	result: MeasureResult(costs=(17.486495941,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.47433066368103, timestamp=1690938062.910469)	[('tile_x', 200), ('tile_xT', 200)],None,294
+autotvm - DEBUG - No: 74	GFLOPS: 7.56/8.93	result: MeasureResult(costs=(16.935623409,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.43219327926636, timestamp=1690938097.9840539)	[('tile_x', 250), ('tile_xT', 200)],None,295
+autotvm - DEBUG - No: 75	GFLOPS: 6.42/8.93	result: MeasureResult(costs=(19.938687247999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.7319655418396, timestamp=1690938138.348737)	[('tile_x', 400), ('tile_xT', 200)],None,296
+autotvm - DEBUG - No: 76	GFLOPS: 8.15/8.93	result: MeasureResult(costs=(15.714580951,), error_no=MeasureErrorNo.NO_ERROR, all_cost=32.75336813926697, timestamp=1690938170.7418506)	[('tile_x', 2000), ('tile_xT', 200)],None,299
+autotvm - DEBUG - No: 77	GFLOPS: 1.47/8.93	result: MeasureResult(costs=(87.128259716,), error_no=MeasureErrorNo.NO_ERROR, all_cost=176.445219039917, timestamp=1690938346.8671532)	[('tile_x', 1), ('tile_xT', 250)],None,300
+autotvm - DEBUG - No: 78	GFLOPS: 4.89/8.93	result: MeasureResult(costs=(26.172551108,), error_no=MeasureErrorNo.NO_ERROR, all_cost=53.940305948257446, timestamp=1690938400.4955661)	[('tile_x', 8), ('tile_xT', 250)],None,304
+autotvm - DEBUG - No: 79	GFLOPS: 4.94/8.93	result: MeasureResult(costs=(25.894060959999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.974395751953125, timestamp=1690938453.4622316)	[('tile_x', 25), ('tile_xT', 250)],None,308
+autotvm - DEBUG - No: 80	GFLOPS: 8.84/8.93	result: MeasureResult(costs=(14.475937583999999,), error_no=MeasureErrorNo.NO_ERROR, all_cost=30.39330291748047, timestamp=1690938483.747233)	[('tile_x', 40), ('tile_xT', 250)],None,309
+autotvm - DEBUG - No: 81	GFLOPS: 7.16/8.93	result: MeasureResult(costs=(17.885512437000003,), error_no=MeasureErrorNo.NO_ERROR, all_cost=37.79727053642273, timestamp=1690938521.1881633)	[('tile_x', 125), ('tile_xT', 250)],None,313
+autotvm - DEBUG - No: 82	GFLOPS: 7.62/8.93	result: MeasureResult(costs=(16.806079451000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=35.258278131484985, timestamp=1690938556.0549796)	[('tile_x', 1000), ('tile_xT', 250)],None,318
+autotvm - DEBUG - No: 83	GFLOPS: 1.34/8.93	result: MeasureResult(costs=(95.651191765,), error_no=MeasureErrorNo.NO_ERROR, all_cost=194.63083481788635, timestamp=1690938750.7279968)	[('tile_x', 1), ('tile_xT', 400)],None,320
+autotvm - DEBUG - No: 84	GFLOPS: 2.70/8.93	result: MeasureResult(costs=(47.414616628999994,), error_no=MeasureErrorNo.NO_ERROR, all_cost=100.79770231246948, timestamp=1690938851.1640668)	[('tile_x', 2), ('tile_xT', 400)],None,321
+autotvm - DEBUG - No: 85	GFLOPS: 4.41/8.93	result: MeasureResult(costs=(29.001405876,), error_no=MeasureErrorNo.NO_ERROR, all_cost=60.21508502960205, timestamp=1690938910.994168)	[('tile_x', 25), ('tile_xT', 400)],None,328
+autotvm - DEBUG - No: 86	GFLOPS: 6.43/8.93	result: MeasureResult(costs=(19.913389770000002,), error_no=MeasureErrorNo.NO_ERROR, all_cost=41.53457188606262, timestamp=1690938952.1637976)	[('tile_x', 80), ('tile_xT', 400)],None,331
+autotvm - DEBUG - No: 87	GFLOPS: 5.34/8.93	result: MeasureResult(costs=(23.957833556,), error_no=MeasureErrorNo.NO_ERROR, all_cost=49.579506158828735, timestamp=1690939001.381848)	[('tile_x', 125), ('tile_xT', 400)],None,333
+autotvm - DEBUG - No: 88	GFLOPS: 6.87/8.93	result: MeasureResult(costs=(18.641613196999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=39.20138430595398, timestamp=1690939040.228333)	[('tile_x', 250), ('tile_xT', 400)],None,335
+autotvm - DEBUG - No: 89	GFLOPS: 6.40/8.93	result: MeasureResult(costs=(20.001970793,), error_no=MeasureErrorNo.NO_ERROR, all_cost=42.41968274116516, timestamp=1690939082.3254144)	[('tile_x', 50), ('tile_xT', 500)],None,350
+autotvm - DEBUG - No: 90	GFLOPS: 5.03/8.93	result: MeasureResult(costs=(25.426833455,), error_no=MeasureErrorNo.NO_ERROR, all_cost=52.97430205345154, timestamp=1690939134.986263)	[('tile_x', 125), ('tile_xT', 500)],None,353
+autotvm - DEBUG - No: 91	GFLOPS: 6.65/8.93	result: MeasureResult(costs=(19.247433091999998,), error_no=MeasureErrorNo.NO_ERROR, all_cost=39.919025897979736, timestamp=1690939174.542942)	[('tile_x', 400), ('tile_xT', 500)],None,356
+autotvm - DEBUG - No: 92	GFLOPS: 1.34/8.93	result: MeasureResult(costs=(95.199747733,), error_no=MeasureErrorNo.NO_ERROR, all_cost=192.00859022140503, timestamp=1690939366.2886436)	[('tile_x', 2), ('tile_xT', 1000)],None,361
+autotvm - DEBUG - No: 93	GFLOPS: 2.93/8.93	result: MeasureResult(costs=(43.739086594,), error_no=MeasureErrorNo.NO_ERROR, all_cost=88.97470188140869, timestamp=1690939455.136165)	[('tile_x', 16), ('tile_xT', 1000)],None,366
+autotvm - DEBUG - No: 94	GFLOPS: 5.88/8.93	result: MeasureResult(costs=(21.756623210999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=44.99328923225403, timestamp=1690939499.8066304)	[('tile_x', 200), ('tile_xT', 1000)],None,374
+autotvm - DEBUG - No: 95	GFLOPS: 6.58/8.93	result: MeasureResult(costs=(19.4599648,), error_no=MeasureErrorNo.NO_ERROR, all_cost=40.23330736160278, timestamp=1690939539.6570554)	[('tile_x', 500), ('tile_xT', 1000)],None,377
+autotvm - DEBUG - No: 96	GFLOPS: 7.31/8.93	result: MeasureResult(costs=(17.502891875,), error_no=MeasureErrorNo.NO_ERROR, all_cost=36.366477966308594, timestamp=1690939575.6444423)	[('tile_x', 1000), ('tile_xT', 1000)],None,378
+autotvm - DEBUG - No: 97	GFLOPS: 1.97/8.93	result: MeasureResult(costs=(64.917410575,), error_no=MeasureErrorNo.NO_ERROR, all_cost=132.7571783065796, timestamp=1690939708.0577266)	[('tile_x', 10), ('tile_xT', 2000)],None,385
+autotvm - DEBUG - No: 98	GFLOPS: 5.64/8.93	result: MeasureResult(costs=(22.700710771999997,), error_no=MeasureErrorNo.NO_ERROR, all_cost=46.62570357322693, timestamp=1690939754.3230777)	[('tile_x', 200), ('tile_xT', 2000)],None,394
+autotvm - DEBUG - No: 99	GFLOPS: 5.84/8.93	result: MeasureResult(costs=(21.923771055,), error_no=MeasureErrorNo.NO_ERROR, all_cost=45.608227014541626, timestamp=1690939799.59805)	[('tile_x', 250), ('tile_xT', 2000)],None,395
+autotvm - DEBUG - No: 100	GFLOPS: 2.91/8.93	result: MeasureResult(costs=(44.037296986,), error_no=MeasureErrorNo.NO_ERROR, all_cost=90.05085301399231, timestamp=1690939889.285649)	[('tile_x', 2000), ('tile_xT', 2000)],None,399
+root - INFO - Elpased time = 6985.443560361862
 autotvm - DEBUG - Finish loading 100 records
