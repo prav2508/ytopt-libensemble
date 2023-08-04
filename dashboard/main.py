@@ -29,6 +29,10 @@ paths = {
     "Cholesky" : {
         "tvm" : "../cholesky_TVM/",
         "ytopt":"../cholesky_Ytopt/"
+    },
+    "LU":{
+        "tvm" : "../LU_TVM/",
+        "ytopt":"../LU_Ytopt/"  
     }
 
 }
@@ -45,7 +49,7 @@ errorVal = 1000000000
 
 st.title("Autotuning Apache TVM Applications Using ytopt (Bayesian Optimization)")
 
-option = st.selectbox("Select Experiment".upper(),("Gems (Matrix Multiplication)","3MM","Cholesky"))
+option = st.selectbox("Select Experiment".upper(),("Gems (Matrix Multiplication)","3MM","Cholesky","LU"))
 
 config = st.radio(
     "Select Configuration",
@@ -70,7 +74,7 @@ try:
             reader = csv.reader(file)
             header = next(reader) 
             i=1
-            if option == "Gems (Matrix Multiplication)" or option == "Cholesky":
+            if option == "Gems (Matrix Multiplication)" or option == "Cholesky" or option == "LU":
                 
                 for row in reader:
                     object = {}

@@ -56,7 +56,7 @@ export PYTHONNOUSERSITE=1
 conda activate \$CONDA_ENV_NAME
 
 # Launch libE
-python \$EXE \$COMMS \$NWORKERS --learner=RF --max-evals=5 > out.txt 2>&1
+python \$EXE \$COMMS \$NWORKERS --learner=RF --max-evals=200 > out.txt 2>&1
 EOF
 #-----This part submits the script you just created--------------
 chmod +x batch.job

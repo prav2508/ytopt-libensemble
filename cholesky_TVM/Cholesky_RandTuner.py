@@ -47,7 +47,7 @@ def Cholesky_v1(N, size, dtype):
 
         cfg.define_knob("tile_x", [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 125, 160, 200, 250, 400, 500, 800, 1000, 2000, 4000])
         cfg.define_knob("tile_xT", [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 125, 160, 200, 250, 400, 500, 800, 1000, 2000, 4000]) 
-        
+
     # 4. schedule according to config
     yo, yi = s[C].split(y, cfg["tile_xT"].val)
     xo, xi = s[C].split(x, cfg["tile_x"].val)
@@ -76,7 +76,7 @@ def main(datasize):
     path = resultsPath + "tvmRandomTuner.json"
     start = time.time()
     tuner.tune(
-    n_trial=100,
+    n_trial=200,
     measure_option=measure_option,
     callbacks=[autotvm.callback.log_to_file(path)]
     )

@@ -76,7 +76,7 @@ def main(datasize):
     path = resultsPath + "tvmGATuner.json"
     start = time.time()
     tuner.tune(
-    n_trial=100,
+    n_trial=200,
     measure_option=measure_option,
     callbacks=[autotvm.callback.log_to_file(path)]
     )
