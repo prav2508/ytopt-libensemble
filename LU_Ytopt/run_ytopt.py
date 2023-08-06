@@ -74,12 +74,12 @@ sim_specs = {
 cs = CS.ConfigurationSpace(seed=1234)
 #batch_size
 #Large
-p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000],default_value=8)
-p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000],default_value=8)
+p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
+p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 125, 200, 250, 400, 500, 1000, 2000])
 
 #ExtraLarge
-# p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 125, 160, 200, 250, 400, 500, 800, 1000, 2000, 4000],default_value=8)
-# p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 125, 160, 200, 250, 400, 500, 800, 1000, 2000, 4000],default_value=8)
+# p0= CSH.OrdinalHyperparameter(name='p0', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 125, 160, 200, 250, 400, 500, 800, 1000, 2000, 4000])
+# p1= CSH.OrdinalHyperparameter(name='p1', sequence= [1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100, 125, 160, 200, 250, 400, 500, 800, 1000, 2000, 4000])
 
 
 cs.add_hyperparameters([p0, p1])

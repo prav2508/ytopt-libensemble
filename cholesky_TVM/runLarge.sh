@@ -5,7 +5,7 @@
 #SBATCH --job-name=ytopt
 #SBATCH --output=slurmLog/out/gpu-matmul-tvm.%j.out
 #SBATCH --error=slurmLog/err/gpu-matmul-tvm.%j.err
-#SBATCH --gres=gpu:8
+#SBATCH --gres=gpu:1
 #SBATCH --account=STARTUP-PPARAMASIVAM
 #SBATCH --mail-type=BEGIN,END
 #SBATCH --mail-user=pparamasivam@anl.gov
